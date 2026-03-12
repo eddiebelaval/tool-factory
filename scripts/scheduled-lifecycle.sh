@@ -105,6 +105,29 @@ if [ -x "$NOTIFY" ]; then
   if [ "$MODE" = "full" ] && [ -n "$DORMANT_LINE" ]; then
     bash "$NOTIFY" silent "Tool Factory" "Weekly: $DORMANT_LINE"
   fi
+
+  # Squire sync (weekly only, on live runs)
+  if [ "$MODE" = "full" ]; then
+    SQUIRE_SYNC="$FACTORY_DIR/scripts/squire-sync.sh"
+    if [ -x "$SQUIRE_SYNC" ]; then
+      echo "[scheduled-lifecycle] Running weekly Squire sync..."
+      SYNC_OUTPUT=$(bash "$SQUIRE_SYNC" --counts 2>&1) || true
+      # Parse counts: type\tnew\tstale\tupdated\tlocal\trepo
+      TOTAL_NEW=$(echo "$SYNC_OUTPUT" | awk -F'\t' '{s+=$2} END {print s+0}')
+      TOTAL_STALE=$(echo "$SYNC_OUTPUT" | awk -F'\t' '{s+=$3} END {print s+0}')
+      TOTAL_UPDATED=$(echo "$SYNC_OUTPUT" | awk -F'\t' '{s+=$4} END {print s+0}')
+      TOTAL_DRIFT=$((TOTAL_NEW + TOTAL_STALE + TOTAL_UPDATED))
+
+      if [ "$TOTAL_DRIFT" -gt 0 ]; then
+        bash "$NOTIFY" normal "Squire Sync" "+${TOTAL_NEW} new, -${TOTAL_STALE} stale, ~${TOTAL_UPDATED} updated tools drifted from repo"
+        echo "[scheduled-lifecycle] Squire drift: +$TOTAL_NEW -$TOTAL_STALE ~$TOTAL_UPDATED"
+        # Auto-sync
+        bash "$SQUIRE_SYNC" --sync 2>&1 | tail -5
+      else
+        echo "[scheduled-lifecycle] Squire: in sync"
+      fi
+    fi
+  fi
 else
   echo "[scheduled-lifecycle] notify-eddie.sh not found, skipping notifications"
 fi

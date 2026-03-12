@@ -1,0 +1,77 @@
+# Composition: squire-sync
+# Created: 2026-03-12
+#
+# Full Squire repo sync pipeline:
+# 1. Report drift between local and repo
+# 2. Sync all changes (new, updated, stale)
+# 3. Update README counts
+# 4. Commit and push
+
+name: squire-sync
+description: Diff local tools against Squire repo, sync, update counts, commit + push
+version: "1.0.0"
+
+steps:
+  - type: shell
+    name: report
+    command: "bash $HOME/Development/id8/tool-factory/scripts/squire-sync.sh"
+
+  - type: shell
+    name: sync
+    command: "bash $HOME/Development/id8/tool-factory/scripts/squire-sync.sh --sync"
+
+  - type: shell
+    name: count-commands
+    command: "ls $HOME/Development/squire/commands/*.md | wc -l | tr -d ' '"
+    export_as: CMD_COUNT
+
+  - type: shell
+    name: count-skills
+    command: "find $HOME/Development/squire/skills -maxdepth 1 -type d | tail -n +2 | wc -l | tr -d ' '"
+    export_as: SKILL_COUNT
+
+  - type: shell
+    name: count-agents
+    command: "ls $HOME/Development/squire/agents/*.md | wc -l | tr -d ' '"
+    export_as: AGENT_COUNT
+
+  - type: shell
+    name: update-readme
+    command: "cd $HOME/Development/squire && python3 -c \"
+import re, sys, os
+cmd = os.environ.get('CMD_COUNT', '?')
+skill = os.environ.get('SKILL_COUNT', '?')
+agent = os.environ.get('AGENT_COUNT', '?')
+path = 'README.md'
+text = open(path).read()
+# Update header line
+text = re.sub(r'\\d+ slash commands, \\d+ skills, \\d+ custom agents', f'{cmd} slash commands, {skill} skills, {agent} custom agents', text)
+# Update table counts
+text = re.sub(r'\\| \\[Commands\\]\\(commands/\\) \\| \\d+', f'| [Commands](commands/) | {cmd}', text)
+text = re.sub(r'\\| \\[Skills\\]\\(skills/\\) \\| \\d+', f'| [Skills](skills/) | {skill}', text)
+text = re.sub(r'\\| \\[Agents\\]\\(agents/\\) \\| \\d+', f'| [Agents](agents/) | {agent}', text)
+# Update section headers
+text = re.sub(r'## Slash Commands \\(\\d+\\)', f'## Slash Commands ({cmd})', text)
+text = re.sub(r'## Skills \\(\\d+\\)', f'## Skills ({skill})', text)
+text = re.sub(r'## Agents \\(\\d+\\)', f'## Agents ({agent})', text)
+# Update The Numbers table
+text = re.sub(r'\\| Skills built \\| [\\d,]+ \\|', f'| Skills built | {skill} |', text)
+text = re.sub(r'\\| Slash commands \\| [\\d,]+ \\|', f'| Slash commands | {cmd} |', text)
+text = re.sub(r'\\| Custom agents \\| [\\d,]+ \\|', f'| Custom agents | {agent} |', text)
+open(path, 'w').write(text)
+print(f'README updated: {cmd} commands, {skill} skills, {agent} agents')
+\""
+
+  - type: shell
+    name: git-status
+    command: "cd $HOME/Development/squire && git diff --stat"
+
+  - type: shell
+    name: commit-push
+    command: "cd $HOME/Development/squire && git add -A && git diff --cached --quiet && echo 'Nothing to commit — already in sync' || (git commit -m \"feat: squire-sync — $CMD_COUNT commands, $SKILL_COUNT skills, $AGENT_COUNT agents\" && git push origin main && echo 'Pushed to origin/main')"
+    continue_on_fail: true
+
+  - type: shell
+    name: update-gh-description
+    command: "gh repo edit eddiebelaval/squire --description \"The most complete Claude Code toolkit in the wild. $SKILL_COUNT skills, $CMD_COUNT commands, $AGENT_COUNT agents, stage-gate pipelines, multi-model orchestration, and thinking frameworks -- derived from 2,990 sessions and 3,307 commits.\""
+    continue_on_fail: true
