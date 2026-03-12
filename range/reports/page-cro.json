@@ -1,0 +1,14 @@
+{
+  "tool": "page-cro",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:33Z",
+  "score": 48,
+  "max_score": 100,
+  "percentage": 48,
+  "passed": 6,
+  "warnings": 6,
+  "failed": 2,
+  "recommendation": "FAIL",
+  "token_estimate": 2680,
+  "line_count":      334
+}

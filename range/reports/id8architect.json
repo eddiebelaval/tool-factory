@@ -1,0 +1,14 @@
+{
+  "tool": "id8architect",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:30Z",
+  "score": 63,
+  "max_score": 100,
+  "percentage": 63,
+  "passed": 9,
+  "warnings": 3,
+  "failed": 2,
+  "recommendation": "PARTIAL",
+  "token_estimate": 2287,
+  "line_count":      341
+}

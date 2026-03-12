@@ -1,0 +1,14 @@
+{
+  "tool": "autopilot",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:25Z",
+  "score": 40,
+  "max_score": 100,
+  "percentage": 40,
+  "passed": 5,
+  "warnings": 5,
+  "failed": 4,
+  "recommendation": "FAIL",
+  "token_estimate": 1384,
+  "line_count":      159
+}

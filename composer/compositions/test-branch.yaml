@@ -1,0 +1,19 @@
+# Test composition: conditional branching with on_fail
+name: test-branch
+description: Test on_fail jump and skip logic
+version: "1.0.0"
+
+steps:
+  - type: shell
+    name: will-fail
+    command: "exit 1"
+    on_fail: fallback
+
+  - type: shell
+    name: should-not-run
+    command: "echo THIS SHOULD NOT APPEAR"
+
+  - type: shell
+    name: fallback
+    command: "echo Fallback executed successfully"
+    skip: true

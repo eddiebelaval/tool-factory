@@ -1,0 +1,14 @@
+{
+  "tool": "gsap-choreographer",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:29Z",
+  "score": 83,
+  "max_score": 100,
+  "percentage": 83,
+  "passed": 11,
+  "warnings": 3,
+  "failed": 0,
+  "recommendation": "PARTIAL",
+  "token_estimate": 2496,
+  "line_count":      455
+}

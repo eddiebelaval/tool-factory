@@ -1,0 +1,14 @@
+{
+  "tool": "engagement-optimizer",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:28Z",
+  "score": 100,
+  "max_score": 100,
+  "percentage": 100,
+  "passed": 14,
+  "warnings": 0,
+  "failed": 0,
+  "recommendation": "PASS",
+  "token_estimate": 895,
+  "line_count":      127
+}

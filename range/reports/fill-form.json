@@ -1,0 +1,14 @@
+{
+  "tool": "fill-form",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:29Z",
+  "score": 35,
+  "max_score": 100,
+  "percentage": 35,
+  "passed": 4,
+  "warnings": 6,
+  "failed": 4,
+  "recommendation": "FAIL",
+  "token_estimate": 725,
+  "line_count":      102
+}

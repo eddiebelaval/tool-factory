@@ -1,0 +1,14 @@
+{
+  "tool": "migration-planner",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:32Z",
+  "score": 95,
+  "max_score": 100,
+  "percentage": 95,
+  "passed": 13,
+  "warnings": 1,
+  "failed": 0,
+  "recommendation": "PASS",
+  "token_estimate": 343,
+  "line_count":       45
+}

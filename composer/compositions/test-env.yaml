@@ -1,0 +1,15 @@
+# Test composition: environment variable injection
+name: test-env
+description: Test export_as and env injection between steps
+version: "1.0.0"
+
+steps:
+  - type: shell
+    name: set-version
+    command: "echo 2.5.0"
+    export_as: VERSION
+
+  - type: shell
+    name: use-version
+    command: "echo Building version $VERSION for $DEPLOY_TARGET"
+    env: DEPLOY_TARGET=staging

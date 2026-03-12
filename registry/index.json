@@ -1,0 +1,3574 @@
+{
+  "meta": {
+    "version": "0.1.0",
+    "created": "2026-03-12",
+    "last_audit": "2026-03-12",
+    "total_tools": 465,
+    "counts": {
+      "skills": 285,
+      "slash_commands": 59,
+      "hooks": 47,
+      "agents": 36,
+      "plugins": 22,
+      "mcp_servers": 16,
+      "skills_active": 274,
+      "skills_retired": 11
+    }
+  },
+  "skills": [
+    {
+      "name": "ab-test-designer",
+      "type": "skill",
+      "purpose": "Design statistically valid A/B tests",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "ab-test-setup",
+      "type": "skill",
+      "purpose": "Set up A/B test infrastructure",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:ab-test-designer"
+      ]
+    },
+    {
+      "name": "accounts-reconciler",
+      "type": "skill",
+      "purpose": "Automate account reconciliation and variance reports",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "ad-copy-writer",
+      "type": "skill",
+      "purpose": "Write high-converting ad copy for paid media",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "advisory-board-builder",
+      "type": "skill",
+      "purpose": "Recruit and manage advisory boards",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "affiliate-marketing-manager",
+      "type": "skill",
+      "purpose": "Set up and manage affiliate marketing programs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "agent-orchestrator",
+      "type": "skill",
+      "purpose": "Coordinate multiple AI agents for complex workflows",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "agent-workflow-builder",
+      "type": "skill",
+      "purpose": "Build multi-agent AI workflows with orchestration",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:agent-orchestrator"
+      ]
+    },
+    {
+      "name": "ai-integration-specialist",
+      "type": "skill",
+      "purpose": "Integrate AI tools and APIs into business workflows",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "ai-safety-auditor",
+      "type": "skill",
+      "purpose": "Audit AI systems for safety and bias",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "analytics-tracking",
+      "type": "skill",
+      "purpose": "Set up analytics and tracking",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "announcement-drafter",
+      "type": "skill",
+      "purpose": "Write company announcements",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "api-design",
+      "type": "skill",
+      "purpose": "Design APIs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "api-documentation-writer",
+      "type": "skill",
+      "purpose": "Write comprehensive API docs and OpenAPI specs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "appstore-readiness",
+      "type": "skill",
+      "purpose": "iOS App Store submission system with 9 agents",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "audience-segmenter",
+      "type": "skill",
+      "purpose": "Segment audiences for targeted marketing",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "audit",
+      "type": "skill",
+      "purpose": "Structured read-only codebase audit with parallel agents",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "automation-architect",
+      "type": "skill",
+      "purpose": "Design workflow automations (Zapier, Make, n8n)",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "billing-manager",
+      "type": "skill",
+      "purpose": "Manage billing, invoices, subscriptions",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "blog-post-writer",
+      "type": "skill",
+      "purpose": "Create SEO-optimized blog posts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "board-meeting-prep",
+      "type": "skill",
+      "purpose": "Prepare board meeting materials",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "brand-identity-builder",
+      "type": "skill",
+      "purpose": "Build complete brand identity systems",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "brand-partnership-negotiator",
+      "type": "skill",
+      "purpose": "Negotiate brand partnerships",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "brand-voice-coach",
+      "type": "skill",
+      "purpose": "Maintain consistent brand voice",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "browser-use",
+      "type": "skill",
+      "purpose": "Browser automation for testing and data extraction",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "budget-planner",
+      "type": "skill",
+      "purpose": "Create and optimize budgets",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "build-landing-page",
+      "type": "skill",
+      "purpose": "Build landing pages via pipeline",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "business-plan-writer",
+      "type": "skill",
+      "purpose": "Create business plans and financial projections",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "campaign-analyzer",
+      "type": "skill",
+      "purpose": "Analyze marketing campaign performance",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "cap-table-manager",
+      "type": "skill",
+      "purpose": "Manage equity cap tables and dilution",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "carousel-designer",
+      "type": "skill",
+      "purpose": "Design educational carousel posts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "case-study-writer",
+      "type": "skill",
+      "purpose": "Create business case studies",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "cash-flow-forecaster",
+      "type": "skill",
+      "purpose": "Forecast cash flows and liquidity",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "chain-builder",
+      "type": "skill",
+      "purpose": "Build multi-step prompt chains",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "chat-response-generator",
+      "type": "skill",
+      "purpose": "Generate chat/messaging responses",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "chatbot-designer",
+      "type": "skill",
+      "purpose": "Design conversational AI chatbots",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "churn-predictor",
+      "type": "skill",
+      "purpose": "Predict customer churn risk",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "ci-cd-pipeline-builder",
+      "type": "skill",
+      "purpose": "Build CI/CD pipelines",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "citation-manager",
+      "type": "skill",
+      "purpose": "Manage bibliographies and citations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "cli-builder",
+      "type": "skill",
+      "purpose": "Build CLIs with Node.js or Python",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "client-onboarding-designer",
+      "type": "skill",
+      "purpose": "Design client onboarding experiences",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "code-reviewer",
+      "type": "skill",
+      "purpose": "Comprehensive code review for TS/JS/Python/Swift/Kotlin/Go",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "color-palette-generator",
+      "type": "skill",
+      "purpose": "Create accessible color schemes",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "community-builder",
+      "type": "skill",
+      "purpose": "Build online communities",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:community-manager"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "community-manager",
+      "type": "skill",
+      "purpose": "Manage online communities",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:community-builder"
+      ]
+    },
+    {
+      "name": "competitive-intelligence",
+      "type": "skill",
+      "purpose": "Deep competitive research using OSINT",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:competitor-tracker"
+      ]
+    },
+    {
+      "name": "competitor-tracker",
+      "type": "skill",
+      "purpose": "Track competitor activities",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:competitive-intelligence"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "compliance-checker",
+      "type": "skill",
+      "purpose": "Check regulatory compliance",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "computer-vision-helper",
+      "type": "skill",
+      "purpose": "Assist with image analysis and visual AI",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "conference-paper-writer",
+      "type": "skill",
+      "purpose": "Write academic conference papers",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "config-manager",
+      "type": "skill",
+      "purpose": "Manage app configuration and secrets",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "construction-estimator",
+      "type": "skill",
+      "purpose": "Construction cost estimation",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "content-calendar-planner",
+      "type": "skill",
+      "purpose": "Plan content calendars",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "content-publishing",
+      "type": "skill",
+      "purpose": "Publish content across platforms",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "context-manager",
+      "type": "skill",
+      "purpose": "Manage conversation context and memory",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "contract-analyzer",
+      "type": "skill",
+      "purpose": "Review contracts for risks and obligations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "contract-drafter",
+      "type": "skill",
+      "purpose": "Generate legal contracts from templates",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "copywriter",
+      "type": "skill",
+      "purpose": "Craft persuasive marketing copy",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:copywriting"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "copywriting",
+      "type": "skill",
+      "purpose": "Copywriting skill",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:copywriter"
+      ]
+    },
+    {
+      "name": "copy-editing",
+      "type": "skill",
+      "purpose": "Edit copy for clarity and style",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "cost-optimizer",
+      "type": "skill",
+      "purpose": "Analyze spending and reduce costs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "course-creator",
+      "type": "skill",
+      "purpose": "Design educational courses",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "creator-partnership-manager",
+      "type": "skill",
+      "purpose": "Manage influencer collaborations",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:influencer-finder"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "cto-advisor",
+      "type": "skill",
+      "purpose": "Technical leadership and architecture guidance",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "customer-discovery-guide",
+      "type": "skill",
+      "purpose": "Guide customer discovery interviews",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "customer-journey-mapper",
+      "type": "skill",
+      "purpose": "Map customer journeys",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "customer-success",
+      "type": "skill",
+      "purpose": "Manage customer relationships and health scores",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "customer-support-reply",
+      "type": "skill",
+      "purpose": "Craft customer support responses",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "daily-planner",
+      "type": "skill",
+      "purpose": "Structured daily planning",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "data-analyzer",
+      "type": "skill",
+      "purpose": "Advanced data analysis and insight generation",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "data-storyteller",
+      "type": "skill",
+      "purpose": "Transform data into narratives",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "database-design",
+      "type": "skill",
+      "purpose": "Design database schemas",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "dataset-curator",
+      "type": "skill",
+      "purpose": "Curate ML training datasets",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "decision-helper",
+      "type": "skill",
+      "purpose": "Structured decision frameworks",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "defuddle",
+      "type": "skill",
+      "purpose": "Extract clean markdown from web pages",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "demo-script-writer",
+      "type": "skill",
+      "purpose": "Write product demo scripts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "deployment-automation",
+      "type": "skill",
+      "purpose": "Automate deployments",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "docker-composer",
+      "type": "skill",
+      "purpose": "Create Docker Compose configurations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "due-diligence-coordinator",
+      "type": "skill",
+      "purpose": "Coordinate investor due diligence",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "ecommerce-manager",
+      "type": "skill",
+      "purpose": "Online store management and conversion optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "education-tutor",
+      "type": "skill",
+      "purpose": "Personalized tutoring and study strategies",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "email-composer",
+      "type": "skill",
+      "purpose": "Draft professional emails",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "email-notifications",
+      "type": "skill",
+      "purpose": "Email notification system",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "email-sequence",
+      "type": "skill",
+      "purpose": "Design email sequences",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "embedding-generator",
+      "type": "skill",
+      "purpose": "Generate text embeddings for search/clustering",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "engagement-optimizer",
+      "type": "skill",
+      "purpose": "Optimize social media engagement",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "entity-extractor",
+      "type": "skill",
+      "purpose": "Extract named entities from text",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "env-setup-assistant",
+      "type": "skill",
+      "purpose": "Set up development environments",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "equity-structurer",
+      "type": "skill",
+      "purpose": "Structure founder equity and vesting",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "error-monitoring",
+      "type": "skill",
+      "purpose": "Set up error monitoring",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "escalation-handler",
+      "type": "skill",
+      "purpose": "Handle escalated support issues",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "executive-summary-writer",
+      "type": "skill",
+      "purpose": "Create executive summaries",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "exit-strategist",
+      "type": "skill",
+      "purpose": "Plan M&A exits",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "expense-tracker",
+      "type": "skill",
+      "purpose": "Track business expenses",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "explainer-video-scripter",
+      "type": "skill",
+      "purpose": "Write explainer video scripts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "expo-app-design",
+      "type": "skill",
+      "purpose": "Build Expo productivity apps",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "expo-deployment",
+      "type": "skill",
+      "purpose": "Deploy Expo apps via EAS",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "faq-builder",
+      "type": "skill",
+      "purpose": "Build FAQ databases",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "feedback-analyzer",
+      "type": "skill",
+      "purpose": "Analyze customer feedback for insights",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "file-uploads",
+      "type": "skill",
+      "purpose": "Handle file uploads",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "fill-form",
+      "type": "skill",
+      "purpose": "Automated form filling",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "financial-analyst",
+      "type": "skill",
+      "purpose": "Financial analysis and modeling",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "financial-reporter",
+      "type": "skill",
+      "purpose": "Generate financial reports",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "fine-tuning-assistant",
+      "type": "skill",
+      "purpose": "Guide model fine-tuning",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "flow",
+      "type": "skill",
+      "purpose": "Map and document user flows interactively",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "focus-timer",
+      "type": "skill",
+      "purpose": "Structured focus sessions (Pomodoro)",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "form-builder",
+      "type": "skill",
+      "purpose": "Create fillable forms and surveys",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "form-cro",
+      "type": "skill",
+      "purpose": "Form conversion rate optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "founder-coach",
+      "type": "skill",
+      "purpose": "Founder mental health and leadership coaching",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "free-tool-strategy",
+      "type": "skill",
+      "purpose": "Strategy for free tools as lead gen",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "freelance-business-manager",
+      "type": "skill",
+      "purpose": "Manage freelance business operations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "fundraising-strategist",
+      "type": "skill",
+      "purpose": "Plan fundraising rounds",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "git-workflow-designer",
+      "type": "skill",
+      "purpose": "Design Git branching strategies",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "goal-setter",
+      "type": "skill",
+      "purpose": "Set and track goals",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "grant-writer",
+      "type": "skill",
+      "purpose": "Craft grant proposals",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "growth-hacker",
+      "type": "skill",
+      "purpose": "Design growth experiments",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "gsap-choreographer",
+      "type": "skill",
+      "purpose": "GSAP animation choreography",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "gtm-strategist",
+      "type": "skill",
+      "purpose": "Develop go-to-market strategies",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "habit-tracker",
+      "type": "skill",
+      "purpose": "Build habits with behavioral science",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "hashtag-researcher",
+      "type": "skill",
+      "purpose": "Research hashtags for reach",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "healthcare-compliance",
+      "type": "skill",
+      "purpose": "HIPAA compliance and healthcare regs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "help-article-writer",
+      "type": "skill",
+      "purpose": "Write help center articles",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "higgsfield-operator",
+      "type": "skill",
+      "purpose": "Higgsfield video generation operator",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "hospitality-coordinator",
+      "type": "skill",
+      "purpose": "Hotel/restaurant operations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "hr-assistant",
+      "type": "skill",
+      "purpose": "HR management and recruitment",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "humanizer",
+      "type": "skill",
+      "purpose": "Remove AI writing patterns",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "icon-designer",
+      "type": "skill",
+      "purpose": "Create icon sets and systems",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8architect",
+      "type": "skill",
+      "purpose": "ID8 Technical Design Engine",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8exit",
+      "type": "skill",
+      "purpose": "ID8 Exit Engine",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8growth",
+      "type": "skill",
+      "purpose": "ID8 Growth Engine",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8labs",
+      "type": "skill",
+      "purpose": "ID8Labs Agent Suite \u2014 complete idea-to-exit pipeline",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8launch",
+      "type": "skill",
+      "purpose": "ID8 Go-to-Market Engine",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8ops",
+      "type": "skill",
+      "purpose": "ID8 Operations Engine",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8scout",
+      "type": "skill",
+      "purpose": "ID8 Validation Engine",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8today",
+      "type": "skill",
+      "purpose": "ID8 Daily Operating Layer",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "id8tracker",
+      "type": "skill",
+      "purpose": "ID8 Pipeline Nervous System",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "idea-capturer",
+      "type": "skill",
+      "purpose": "Capture and develop ideas",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "incident-responder",
+      "type": "skill",
+      "purpose": "Manage production incidents",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "industry-expert",
+      "type": "skill",
+      "purpose": "Deep domain research across industries",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "influencer-finder",
+      "type": "skill",
+      "purpose": "Find and evaluate influencers",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "infographic-designer",
+      "type": "skill",
+      "purpose": "Create data visualizations and infographics",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "infrastructure-documenter",
+      "type": "skill",
+      "purpose": "Document infrastructure and runbooks",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "instagram-strategist",
+      "type": "skill",
+      "purpose": "Instagram content strategy",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "insurance-analyst",
+      "type": "skill",
+      "purpose": "Insurance policy analysis",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "internal-memo-creator",
+      "type": "skill",
+      "purpose": "Write internal memos",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "inventory-manager",
+      "type": "skill",
+      "purpose": "Track inventory and forecast demand",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "investment-analyzer",
+      "type": "skill",
+      "purpose": "Analyze investment opportunities",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "investor-relations",
+      "type": "skill",
+      "purpose": "Manage investor communications",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "invoice-generator",
+      "type": "skill",
+      "purpose": "Create professional invoices",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "journal-prompter",
+      "type": "skill",
+      "purpose": "Daily journaling prompts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "json-canvas",
+      "type": "skill",
+      "purpose": "Create JSON Canvas files for Obsidian",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "knowledge-base-builder",
+      "type": "skill",
+      "purpose": "Build AI-accessible knowledge bases",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "knowledge-graph-builder",
+      "type": "skill",
+      "purpose": "Build knowledge graphs for support systems",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "kpi-dashboard",
+      "type": "skill",
+      "purpose": "Define KPIs and build dashboards",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "landing-page-designer",
+      "type": "skill",
+      "purpose": "Design landing pages",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:landing-page-optimizer",
+        "possible-duplicate:build-landing-page"
+      ]
+    },
+    {
+      "name": "landing-page-optimizer",
+      "type": "skill",
+      "purpose": "Optimize landing pages for conversion",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:landing-page-designer"
+      ]
+    },
+    {
+      "name": "last30days",
+      "type": "skill",
+      "purpose": "Research topics from last 30 days via Reddit/X/Web",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "launch-planner",
+      "type": "skill",
+      "purpose": "Plan product launches",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "layout-designer",
+      "type": "skill",
+      "purpose": "Page layout and grid system design",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "lead-qualifier",
+      "type": "skill",
+      "purpose": "Qualify and score sales leads",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "lean-canvas-builder",
+      "type": "skill",
+      "purpose": "Create lean/business model canvas",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "learning-path-creator",
+      "type": "skill",
+      "purpose": "Design personalized learning plans",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "legal-assistant",
+      "type": "skill",
+      "purpose": "Legal document analysis and compliance",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "letter-writer",
+      "type": "skill",
+      "purpose": "Generate formal/informal letters",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "lifecycle-marketing-manager",
+      "type": "skill",
+      "purpose": "Design customer lifecycle marketing",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "linkedin-publisher",
+      "type": "skill",
+      "purpose": "Create LinkedIn thought leadership content",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "literature-review",
+      "type": "skill",
+      "purpose": "Academic research synthesis",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "llc-ops",
+      "type": "skill",
+      "purpose": "LLC operations management for id8Labs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "llm-prompt-optimizer",
+      "type": "skill",
+      "purpose": "Optimize prompts for better LLM outputs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "log-analyzer",
+      "type": "skill",
+      "purpose": "Analyze application logs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "logo-ideator",
+      "type": "skill",
+      "purpose": "Generate logo concepts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "lottie-curator",
+      "type": "skill",
+      "purpose": "Curate Lottie animations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "market-research-analyst",
+      "type": "skill",
+      "purpose": "Comprehensive market analysis",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "marketing-ideas",
+      "type": "skill",
+      "purpose": "Generate marketing ideas",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "marketing-psychology",
+      "type": "skill",
+      "purpose": "Apply psychology to marketing",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "mcp-builder",
+      "type": "skill",
+      "purpose": "Guide for creating MCP servers",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "medical-scribe",
+      "type": "skill",
+      "purpose": "Medical documentation and clinical notes",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "meeting-notes-taker",
+      "type": "skill",
+      "purpose": "Summarize meetings into actionable notes",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "meeting-scheduler",
+      "type": "skill",
+      "purpose": "Schedule and optimize meetings",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "meme-curator",
+      "type": "skill",
+      "purpose": "Create brand-appropriate memes",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "migration-planner",
+      "type": "skill",
+      "purpose": "Plan data/system migrations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "milestone-tracker",
+      "type": "skill",
+      "purpose": "Track project milestones",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "mobile-check",
+      "type": "skill",
+      "purpose": "Mobile readiness verification",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "mockup-generator",
+      "type": "skill",
+      "purpose": "Create product mockups",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "model-evaluator",
+      "type": "skill",
+      "purpose": "Evaluate ML model performance",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "monitoring-setup",
+      "type": "skill",
+      "purpose": "Set up monitoring and alerting",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "motion-asset-hunter",
+      "type": "skill",
+      "purpose": "Find motion/animation assets",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "mvp-planner",
+      "type": "skill",
+      "purpose": "Scope MVPs with feature prioritization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "newsletter-writer",
+      "type": "skill",
+      "purpose": "Create engaging newsletters",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "nextjs-project-manager",
+      "type": "skill",
+      "purpose": "Next.js 14+ App Router project management",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "nlp-pipeline-builder",
+      "type": "skill",
+      "purpose": "Build NLP pipelines",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "nps-survey-creator",
+      "type": "skill",
+      "purpose": "Create NPS surveys",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "obsidian-bases",
+      "type": "skill",
+      "purpose": "Create Obsidian Bases files",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "obsidian-cli",
+      "type": "skill",
+      "purpose": "Interact with Obsidian vaults via CLI",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "obsidian-markdown",
+      "type": "skill",
+      "purpose": "Obsidian Flavored Markdown editing",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "omni-vu",
+      "type": "skill",
+      "purpose": "Screen capture, vision analysis, GUI automation",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "onboarding-cro",
+      "type": "skill",
+      "purpose": "Onboarding conversion rate optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "onboarding-designer",
+      "type": "skill",
+      "purpose": "Design user onboarding flows",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:client-onboarding-designer"
+      ]
+    },
+    {
+      "name": "operations-optimizer",
+      "type": "skill",
+      "purpose": "Streamline business operations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "output-formatter",
+      "type": "skill",
+      "purpose": "Format AI outputs for different contexts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "outreach-sequencer",
+      "type": "skill",
+      "purpose": "Create email outreach sequences",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "page-cro",
+      "type": "skill",
+      "purpose": "Page conversion rate optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "paid-ads",
+      "type": "skill",
+      "purpose": "Paid advertising management",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "paywall-upgrade-cro",
+      "type": "skill",
+      "purpose": "Paywall/upgrade conversion optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "pdf-generator",
+      "type": "skill",
+      "purpose": "Create and manipulate PDFs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "peer-reviewer",
+      "type": "skill",
+      "purpose": "Peer review academic/technical documents",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "performance-optimization",
+      "type": "skill",
+      "purpose": "Optimize app performance",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:performance-profiler"
+      ]
+    },
+    {
+      "name": "performance-profiler",
+      "type": "skill",
+      "purpose": "Profile and optimize app performance",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:performance-optimization"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "pinterest-strategist",
+      "type": "skill",
+      "purpose": "Pinterest content strategy",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "pitch-deck-builder",
+      "type": "skill",
+      "purpose": "Create investor pitch decks",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:pitch-deck-creator"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "pitch-deck-creator",
+      "type": "skill",
+      "purpose": "Create investor pitch decks",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:pitch-deck-builder"
+      ]
+    },
+    {
+      "name": "pmf-analyzer",
+      "type": "skill",
+      "purpose": "Assess product-market fit",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "popup-cro",
+      "type": "skill",
+      "purpose": "Popup conversion rate optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "presentation-maker",
+      "type": "skill",
+      "purpose": "Generate PowerPoint presentations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "press-release-writer",
+      "type": "skill",
+      "purpose": "Write press releases",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "pricing-page-optimizer",
+      "type": "skill",
+      "purpose": "Optimize pricing page conversion",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "pricing-strategist",
+      "type": "skill",
+      "purpose": "Develop pricing strategies",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:pricing-strategy"
+      ]
+    },
+    {
+      "name": "pricing-strategy",
+      "type": "skill",
+      "purpose": "Pricing strategy and optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:pricing-strategist"
+      ]
+    },
+    {
+      "name": "procurement-assistant",
+      "type": "skill",
+      "purpose": "Manage procurement processes",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "product-description-writer",
+      "type": "skill",
+      "purpose": "Write e-commerce product descriptions",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "product-launch-coordinator",
+      "type": "skill",
+      "purpose": "Coordinate product launches",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "programmatic-seo",
+      "type": "skill",
+      "purpose": "Programmatic SEO at scale",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "project-planner",
+      "type": "skill",
+      "purpose": "Create project plans with timelines",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "prompt-engineer",
+      "type": "skill",
+      "purpose": "Craft effective AI prompts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "proposal-designer",
+      "type": "skill",
+      "purpose": "Create compelling proposals",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "rag-pipeline-builder",
+      "type": "skill",
+      "purpose": "Build RAG systems",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "ralph-loops",
+      "type": "skill",
+      "purpose": "Autonomous AI building loops",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "reading-list-manager",
+      "type": "skill",
+      "purpose": "Track reading progress",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "real-estate-analyst",
+      "type": "skill",
+      "purpose": "Real estate analysis",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "real-time-features",
+      "type": "skill",
+      "purpose": "Build real-time features",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "reconcile",
+      "type": "skill",
+      "purpose": "Living document reconciliation (VISION/SPEC/BUILDING)",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "reel-script-writer",
+      "type": "skill",
+      "purpose": "Write short-form video scripts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "referral-program",
+      "type": "skill",
+      "purpose": "Design referral programs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:referral-program-designer"
+      ]
+    },
+    {
+      "name": "referral-program-designer",
+      "type": "skill",
+      "purpose": "Design viral referral programs",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:referral-program"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "remotion",
+      "type": "skill",
+      "purpose": "Remotion video creation in React",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "report-builder",
+      "type": "skill",
+      "purpose": "Create formatted business reports",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "research-synthesizer",
+      "type": "skill",
+      "purpose": "Synthesize insights from multiple sources",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "resource-allocator",
+      "type": "skill",
+      "purpose": "Optimize team resource allocation",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "resume-cv-creator",
+      "type": "skill",
+      "purpose": "Build resumes and CVs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "retainer-structurer",
+      "type": "skill",
+      "purpose": "Structure retainer packages",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "retention-marketer",
+      "type": "skill",
+      "purpose": "Reduce churn and increase LTV",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "retrospective-facilitator",
+      "type": "skill",
+      "purpose": "Facilitate team retrospectives",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "revenue-modeler",
+      "type": "skill",
+      "purpose": "Build revenue projection models",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "risk-assessor",
+      "type": "skill",
+      "purpose": "Identify and mitigate project risks",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "rive-animator",
+      "type": "skill",
+      "purpose": "Rive animation design",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "roadmap-builder",
+      "type": "skill",
+      "purpose": "Create strategic product roadmaps",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "runway-calculator",
+      "type": "skill",
+      "purpose": "Calculate cash runway and burn rate",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "saas-metrics-tracker",
+      "type": "skill",
+      "purpose": "Track SaaS metrics (MRR, churn, NRR)",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "sales-pipeline",
+      "type": "skill",
+      "purpose": "Track sales opportunities",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "schema-markup",
+      "type": "skill",
+      "purpose": "Generate schema markup for SEO",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "script-writer",
+      "type": "skill",
+      "purpose": "Write video/podcast scripts",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "security-scanner",
+      "type": "skill",
+      "purpose": "Scan for security vulnerabilities",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "senior-architect",
+      "type": "skill",
+      "purpose": "Software architecture design",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "senior-backend",
+      "type": "skill",
+      "purpose": "Backend development (Node/Go/Python/Postgres)",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "senior-devops",
+      "type": "skill",
+      "purpose": "DevOps and infrastructure automation",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "senior-fullstack",
+      "type": "skill",
+      "purpose": "Fullstack development (React/Next/Node/GraphQL)",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "sentiment-analyzer",
+      "type": "skill",
+      "purpose": "Analyze text sentiment",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "seo-analyst",
+      "type": "skill",
+      "purpose": "SEO performance analysis",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:seo-audit"
+      ]
+    },
+    {
+      "name": "seo-audit",
+      "type": "skill",
+      "purpose": "Technical SEO audit",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:seo-analyst"
+      ]
+    },
+    {
+      "name": "ship",
+      "type": "skill",
+      "purpose": "Full delivery pipeline (preflight-commit-push-PR-merge)",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "signup-flow-cro",
+      "type": "skill",
+      "purpose": "Signup flow conversion optimization",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "skill-creator",
+      "type": "skill",
+      "purpose": "Create new Claude Code skills",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "slack-message-writer",
+      "type": "skill",
+      "purpose": "Craft Slack messages",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "slide-deck-designer",
+      "type": "skill",
+      "purpose": "Design presentation slide decks",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "social-caption-writer",
+      "type": "skill",
+      "purpose": "Write social media captions",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "social-commerce-strategist",
+      "type": "skill",
+      "purpose": "Social commerce strategy",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "social-content",
+      "type": "skill",
+      "purpose": "Create social content",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:social-post-creator",
+        "possible-duplicate:social-caption-writer"
+      ]
+    },
+    {
+      "name": "social-crisis-manager",
+      "type": "skill",
+      "purpose": "Handle social media crises",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "social-listening-analyst",
+      "type": "skill",
+      "purpose": "Monitor brand mentions and sentiment",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "social-media-designer",
+      "type": "skill",
+      "purpose": "Create social media graphics",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "social-media-reporter",
+      "type": "skill",
+      "purpose": "Create social media analytics reports",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "social-post-creator",
+      "type": "skill",
+      "purpose": "Generate social media posts",
+      "status": "retired",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:social-content"
+      ],
+      "retired_date": "2026-03-12",
+      "retired_reason": "duplicate \u2014 resolved in Tool Factory audit"
+    },
+    {
+      "name": "speech-writer",
+      "type": "skill",
+      "purpose": "Write speeches and presentations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "spline-scene-builder",
+      "type": "skill",
+      "purpose": "Build Spline 3D scenes",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "spreadsheet-builder",
+      "type": "skill",
+      "purpose": "Create Excel/CSV files with formulas",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "sprint-planner",
+      "type": "skill",
+      "purpose": "Plan Agile sprints",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "state-management",
+      "type": "skill",
+      "purpose": "Design state management patterns",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "story-sequencer",
+      "type": "skill",
+      "purpose": "Plan Instagram/Facebook Stories sequences",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "story-writer",
+      "type": "skill",
+      "purpose": "Craft creative fiction",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "supabase-expert",
+      "type": "skill",
+      "purpose": "Supabase integration expert",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "supabase-postgres-best-practices",
+      "type": "skill",
+      "purpose": "Supabase Postgres best practices",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "summarization-engine",
+      "type": "skill",
+      "purpose": "Generate summaries of long documents",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "survey-analyzer",
+      "type": "skill",
+      "purpose": "Process and analyze survey data",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "task-manager",
+      "type": "skill",
+      "purpose": "Organize and track tasks",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "tax-strategist",
+      "type": "skill",
+      "purpose": "Optimize tax strategies",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "technical-writer",
+      "type": "skill",
+      "purpose": "Create technical documentation",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "term-sheet-analyzer",
+      "type": "skill",
+      "purpose": "Analyze VC term sheets",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "test-generator",
+      "type": "skill",
+      "purpose": "Generate test suites",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "testing-qa",
+      "type": "skill",
+      "purpose": "Testing Next.js apps with Playwright/Jest",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "three-fiber-specialist",
+      "type": "skill",
+      "purpose": "Three.js/R3F 3D development",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "tiktok-creator",
+      "type": "skill",
+      "purpose": "TikTok content creation and trends",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "time-blocker",
+      "type": "skill",
+      "purpose": "Time blocking and calendar management",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "translation-assistant",
+      "type": "skill",
+      "purpose": "Multilingual translation",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "trend-spotter",
+      "type": "skill",
+      "purpose": "Identify emerging trends",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "tui-builder",
+      "type": "skill",
+      "purpose": "Build terminal UIs",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "twitter-thread-builder",
+      "type": "skill",
+      "purpose": "Craft engaging X/Twitter threads",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "typography-advisor",
+      "type": "skill",
+      "purpose": "Font pairing and typography systems",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "ugc-campaign-planner",
+      "type": "skill",
+      "purpose": "Plan user-generated content campaigns",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "ui-builder",
+      "type": "skill",
+      "purpose": "Build UI with React/Tailwind/Shadcn",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "unit-economics-calculator",
+      "type": "skill",
+      "purpose": "Calculate CAC, LTV, payback periods",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "upgrading-expo",
+      "type": "skill",
+      "purpose": "Upgrade Expo SDK versions",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "user-research",
+      "type": "skill",
+      "purpose": "Conduct qualitative user research",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "valuation-analyst",
+      "type": "skill",
+      "purpose": "Company/asset valuations",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "vector-search-designer",
+      "type": "skill",
+      "purpose": "Design vector similarity search systems",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "vendor-manager",
+      "type": "skill",
+      "purpose": "Manage vendor relationships",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "vercel-composition-patterns",
+      "type": "skill",
+      "purpose": "Vercel composition patterns",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "vercel-react-best-practices",
+      "type": "skill",
+      "purpose": "Vercel React best practices",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "vercel-react-native-skills",
+      "type": "skill",
+      "purpose": "Vercel React Native patterns",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "verify",
+      "type": "skill",
+      "purpose": "Unified verification skill",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "webinar-producer",
+      "type": "skill",
+      "purpose": "Plan and produce webinars",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "white-paper-author",
+      "type": "skill",
+      "purpose": "Create authoritative white papers",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "wiki-maintainer",
+      "type": "skill",
+      "purpose": "Maintain internal wikis",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "wireframe-creator",
+      "type": "skill",
+      "purpose": "Create low-fi wireframes",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "word-document-creator",
+      "type": "skill",
+      "purpose": "Generate Word .docx files",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "word-processor-expert",
+      "type": "skill",
+      "purpose": "Word processor expertise",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:word-document-creator"
+      ]
+    },
+    {
+      "name": "workflow-automator",
+      "type": "skill",
+      "purpose": "Automate workflows",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:workflow-designer",
+        "possible-duplicate:automation-architect"
+      ]
+    },
+    {
+      "name": "workflow-designer",
+      "type": "skill",
+      "purpose": "Design AI-powered workflows",
+      "status": "unscored",
+      "created": null,
+      "last_used": null,
+      "flags": [
+        "possible-duplicate:workflow-automator"
+      ]
+    },
+    {
+      "name": "workshop-facilitator",
+      "type": "skill",
+      "purpose": "Design and facilitate workshops",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "youtube-optimizer",
+      "type": "skill",
+      "purpose": "Optimize YouTube videos for SEO",
+      "status": "unscored",
+      "created": null,
+      "last_used": null
+    },
+    {
+      "name": "test-factory-probe",
+      "type": "skill",
+      "purpose": "Temporary test skill to verify the Tool Factory generator pipeline",
+      "category": "meta",
+      "status": "born",
+      "created": "2026-03-12",
+      "last_used": null,
+      "factory_generated": true
+    }
+  ],
+  "agents": [
+    {
+      "name": "nextjs-senior-dev",
+      "type": "agent",
+      "purpose": "Principal-level Next.js 14+ expertise",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "backend-architect",
+      "type": "agent",
+      "purpose": "Backend system architecture and API design",
+      "status": "unscored"
+    },
+    {
+      "name": "mcp-server-architect",
+      "type": "agent",
+      "purpose": "MCP server architecture and transport",
+      "status": "unscored"
+    },
+    {
+      "name": "mcp-integration-engineer",
+      "type": "agent",
+      "purpose": "MCP client-server integration",
+      "status": "unscored"
+    },
+    {
+      "name": "mcp-deployment-orchestrator",
+      "type": "agent",
+      "purpose": "MCP containerization and production ops",
+      "status": "unscored"
+    },
+    {
+      "name": "mcp-testing-engineer",
+      "type": "agent",
+      "purpose": "MCP protocol compliance and testing",
+      "status": "unscored"
+    },
+    {
+      "name": "mcp-protocol-specialist",
+      "type": "agent",
+      "purpose": "MCP protocol specification",
+      "status": "unscored"
+    },
+    {
+      "name": "mcp-security-auditor",
+      "type": "agent",
+      "purpose": "MCP security reviews and RBAC",
+      "status": "unscored"
+    },
+    {
+      "name": "mcp-registry-navigator",
+      "type": "agent",
+      "purpose": "MCP registry discovery",
+      "status": "unscored"
+    },
+    {
+      "name": "database-migration-specialist",
+      "type": "agent",
+      "purpose": "Database migrations and rollback",
+      "status": "unscored"
+    },
+    {
+      "name": "watcher-database-integrity",
+      "type": "agent",
+      "purpose": "Database health monitoring",
+      "status": "unscored"
+    },
+    {
+      "name": "payment-security-specialist",
+      "type": "agent",
+      "purpose": "Payment processing and PCI compliance",
+      "status": "unscored"
+    },
+    {
+      "name": "stripe-integration-specialist",
+      "type": "agent",
+      "purpose": "Stripe API and billing",
+      "status": "unscored"
+    },
+    {
+      "name": "watcher-security-validator",
+      "type": "agent",
+      "purpose": "Security validation monitoring",
+      "status": "unscored"
+    },
+    {
+      "name": "watcher-code-quality-guardian",
+      "type": "agent",
+      "purpose": "Code quality metrics and linting",
+      "status": "unscored"
+    },
+    {
+      "name": "watcher-payment-flow-tester",
+      "type": "agent",
+      "purpose": "Payment flow testing",
+      "status": "unscored"
+    },
+    {
+      "name": "email-notification-specialist",
+      "type": "agent",
+      "purpose": "Email template design and delivery",
+      "status": "unscored"
+    },
+    {
+      "name": "nana-image-generator",
+      "type": "agent",
+      "purpose": "NANA image generation and prompt engineering",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "notebooklm-producer",
+      "type": "agent",
+      "purpose": "Google NotebookLM audio/video generation",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "social-media-manager",
+      "type": "agent",
+      "purpose": "Social media content and engagement strategy",
+      "status": "unscored"
+    },
+    {
+      "name": "x-viral-optimizer",
+      "type": "agent",
+      "purpose": "X/Twitter viral content optimization",
+      "status": "unscored"
+    },
+    {
+      "name": "reality-tv-beat-writer",
+      "type": "agent",
+      "purpose": "Reality TV production materials",
+      "status": "unscored"
+    },
+    {
+      "name": "operations-manager",
+      "type": "agent",
+      "purpose": "Operational management and coordination (Joan Holloway persona)",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "relationship-builder",
+      "type": "agent",
+      "purpose": "Client relationship and negotiation",
+      "status": "unscored"
+    },
+    {
+      "name": "steve-jobs-advisor",
+      "type": "agent",
+      "purpose": "Visionary product leadership",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "market-intelligence-analyst",
+      "type": "agent",
+      "purpose": "Market research and competitor intelligence",
+      "status": "unscored"
+    },
+    {
+      "name": "strategic-think-tank",
+      "type": "agent",
+      "purpose": "Major business decisions only (RESTRICTED)",
+      "status": "unscored"
+    },
+    {
+      "name": "chat-test-runner",
+      "type": "agent",
+      "purpose": "Chat-based test automation",
+      "status": "unscored"
+    },
+    {
+      "name": "text-editor-architect",
+      "type": "agent",
+      "purpose": "Text editor design and architecture",
+      "status": "unscored"
+    },
+    {
+      "name": "usage-tracking-specialist",
+      "type": "agent",
+      "purpose": "Usage analytics and telemetry",
+      "status": "unscored"
+    },
+    {
+      "name": "krang-brain-agent",
+      "type": "agent",
+      "purpose": "KRANG Master Brain Architect",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "leonardo-strategist-agent",
+      "type": "agent",
+      "purpose": "LEONARDO Strategic Planner",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "raphael-guardian-agent",
+      "type": "agent",
+      "purpose": "RAPHAEL Quality Guardian",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "splinter-mentor-agent",
+      "type": "agent",
+      "purpose": "SPLINTER Senior Advisor",
+      "model": "sonnet",
+      "status": "unscored"
+    },
+    {
+      "name": "donatello-architect-agent",
+      "type": "agent",
+      "purpose": "DONATELLO Technical Architect",
+      "status": "unscored"
+    },
+    {
+      "name": "bebop-devops-agent",
+      "type": "agent",
+      "purpose": "BEBOP DevOps Specialist",
+      "status": "unscored"
+    },
+    {
+      "name": "rocksteady-database-agent",
+      "type": "agent",
+      "purpose": "ROCKSTEADY Database Specialist",
+      "status": "unscored"
+    },
+    {
+      "name": "casey-tester-agent",
+      "type": "agent",
+      "purpose": "CASEY QA Tester",
+      "status": "unscored"
+    },
+    {
+      "name": "michelangelo-builder-agent",
+      "type": "agent",
+      "purpose": "MICHELANGELO Creative Developer",
+      "status": "unscored"
+    }
+  ],
+  "plugins": [
+    {
+      "name": "agent-sdk-dev",
+      "type": "plugin",
+      "source": "claude-code-plugins",
+      "purpose": "Agent SDK development and debugging",
+      "status": "unscored"
+    },
+    {
+      "name": "pr-review-toolkit",
+      "type": "plugin",
+      "source": "claude-code-plugins",
+      "purpose": "Code review and PR analysis",
+      "status": "unscored"
+    },
+    {
+      "name": "feature-dev",
+      "type": "plugin",
+      "source": "claude-code-plugins",
+      "purpose": "Feature development guidance",
+      "status": "unscored"
+    },
+    {
+      "name": "security-guidance",
+      "type": "plugin",
+      "source": "claude-code-plugins",
+      "purpose": "Security best practices",
+      "status": "unscored"
+    },
+    {
+      "name": "learning-output-style",
+      "type": "plugin",
+      "source": "claude-code-plugins",
+      "purpose": "Output formatting optimization",
+      "status": "unscored"
+    },
+    {
+      "name": "code-review",
+      "type": "plugin",
+      "source": "claude-code-plugins",
+      "purpose": "Automated code review",
+      "status": "unscored"
+    },
+    {
+      "name": "frontend-design",
+      "type": "plugin",
+      "source": "claude-code-plugins",
+      "purpose": "UI/UX design and components",
+      "status": "unscored"
+    },
+    {
+      "name": "git-workflow",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Git branch and commit workflows",
+      "status": "unscored"
+    },
+    {
+      "name": "nextjs-vercel-pro",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Next.js + Vercel deployment",
+      "status": "unscored"
+    },
+    {
+      "name": "security-pro",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Enterprise security patterns",
+      "status": "unscored"
+    },
+    {
+      "name": "testing-suite",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Test automation and coverage",
+      "status": "unscored"
+    },
+    {
+      "name": "supabase-toolkit",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Supabase database and auth",
+      "status": "unscored"
+    },
+    {
+      "name": "project-management-suite",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Project organization and tracking",
+      "status": "unscored"
+    },
+    {
+      "name": "devops-automation",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Infrastructure and deployment",
+      "status": "unscored"
+    },
+    {
+      "name": "ai-ml-toolkit",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "AI/ML development utilities",
+      "status": "unscored"
+    },
+    {
+      "name": "documentation-generator",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Automated documentation",
+      "status": "unscored"
+    },
+    {
+      "name": "performance-optimizer",
+      "type": "plugin",
+      "source": "claude-code-templates",
+      "purpose": "Performance profiling and optimization",
+      "status": "unscored"
+    },
+    {
+      "name": "code-simplifier",
+      "type": "plugin",
+      "source": "claude-plugins-official",
+      "purpose": "Code refactoring and simplification",
+      "status": "unscored"
+    },
+    {
+      "name": "playground",
+      "type": "plugin",
+      "source": "claude-plugins-official",
+      "purpose": "Interactive code playground",
+      "status": "unscored"
+    },
+    {
+      "name": "swift-lsp",
+      "type": "plugin",
+      "source": "claude-plugins-official",
+      "purpose": "Swift language server",
+      "status": "unscored"
+    },
+    {
+      "name": "ralph-wiggum",
+      "type": "plugin",
+      "source": "claude-plugins-official",
+      "purpose": "Comedy/reference agent",
+      "status": "unscored"
+    },
+    {
+      "name": "financial-analysis",
+      "type": "plugin",
+      "source": "financial-services-plugins",
+      "purpose": "Financial data analysis",
+      "status": "unscored"
+    }
+  ],
+  "mcp_servers": [
+    {
+      "name": "omni-vu",
+      "type": "mcp_server",
+      "purpose": "Screen capture, vision analysis, GUI automation",
+      "runtime": "python",
+      "location": "~/.claude/mcp-servers/omni-vu/",
+      "status": "unscored"
+    },
+    {
+      "name": "newsletter-mcp",
+      "type": "mcp_server",
+      "purpose": "Signal:noise subscriber management",
+      "runtime": "python",
+      "location": "~/.claude/newsletter-mcp/",
+      "status": "unscored"
+    },
+    {
+      "name": "clawdbot-bridge",
+      "type": "mcp_server",
+      "purpose": "LobeHub WebSocket bridge",
+      "runtime": "node",
+      "location": "~/Development/lobehub-local/mcp-bridge/",
+      "status": "unscored"
+    },
+    {
+      "name": "perplexity",
+      "type": "mcp_server",
+      "purpose": "AI-powered web search",
+      "runtime": "npx",
+      "status": "unscored"
+    },
+    {
+      "name": "notion",
+      "type": "mcp_server",
+      "purpose": "Notion database and page management",
+      "runtime": "npx",
+      "status": "unscored"
+    },
+    {
+      "name": "supabase",
+      "type": "mcp_server",
+      "purpose": "Supabase database operations (Parallax)",
+      "runtime": "http",
+      "status": "unscored"
+    },
+    {
+      "name": "figma",
+      "type": "mcp_server",
+      "purpose": "Figma design file access",
+      "runtime": "http",
+      "status": "unscored"
+    },
+    {
+      "name": "lightpanda",
+      "type": "mcp_server",
+      "purpose": "Lightweight headless browser",
+      "runtime": "binary",
+      "status": "unscored"
+    },
+    {
+      "name": "obsidian",
+      "type": "mcp_server",
+      "purpose": "Obsidian vault management",
+      "runtime": "binary",
+      "status": "unscored"
+    },
+    {
+      "name": "playwright",
+      "type": "mcp_server",
+      "purpose": "Browser automation (built-in)",
+      "runtime": "builtin",
+      "status": "unscored"
+    },
+    {
+      "name": "github",
+      "type": "mcp_server",
+      "purpose": "GitHub repo/PR/issue operations (built-in)",
+      "runtime": "builtin",
+      "status": "unscored"
+    },
+    {
+      "name": "memory",
+      "type": "mcp_server",
+      "purpose": "Knowledge graph CRUD (built-in)",
+      "runtime": "builtin",
+      "status": "unscored"
+    },
+    {
+      "name": "firecrawl",
+      "type": "mcp_server",
+      "purpose": "Web scraping and crawling",
+      "runtime": "builtin",
+      "status": "unscored"
+    },
+    {
+      "name": "codegraphcontext",
+      "type": "mcp_server",
+      "purpose": "Code graph analysis and complexity metrics",
+      "runtime": "builtin",
+      "status": "unscored"
+    },
+    {
+      "name": "codex-cli",
+      "type": "mcp_server",
+      "purpose": "Codex CLI integration",
+      "runtime": "builtin",
+      "status": "unscored"
+    }
+  ],
+  "hooks": [
+    {
+      "name": "play-sound.sh",
+      "type": "hook",
+      "purpose": "Audio notifications for all lifecycle events",
+      "events": [
+        "SessionStart",
+        "SessionEnd",
+        "Stop",
+        "SubagentStart",
+        "PostToolUseFailure",
+        "UserPromptSubmit",
+        "TaskCompleted",
+        "PreCompact",
+        "TeammateIdle",
+        "Notification"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "monitor.sh",
+      "type": "hook",
+      "purpose": "Session lifecycle logger with optional TTS",
+      "events": [
+        "SessionStart",
+        "SessionEnd",
+        "Stop",
+        "UserPromptSubmit",
+        "Notification"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "typescript-check.sh",
+      "type": "hook",
+      "purpose": "Auto tsc --noEmit after TS/TSX edits",
+      "events": [
+        "PostToolUse:Write|Edit"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "kobe-journal-reminder.sh",
+      "type": "hook",
+      "purpose": "Remind to update Kobe builder journal",
+      "events": [
+        "PostToolUse:Write|Edit"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "protect-main-branch.sh",
+      "type": "hook",
+      "purpose": "Block Write/Edit on main/master",
+      "events": [
+        "PreToolUse"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "enforce-feature-branch.sh",
+      "type": "hook",
+      "purpose": "Enforce feature branch naming",
+      "events": [
+        "PreToolUse"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "session-start-tasks.sh",
+      "type": "hook",
+      "purpose": "Display task continuity checklist",
+      "events": [
+        "SessionStart"
+      ],
+      "status": "present"
+    },
+    {
+      "name": "session-end-tasks.sh",
+      "type": "hook",
+      "purpose": "Prompt task completion on exit",
+      "events": [
+        "SessionEnd"
+      ],
+      "status": "present"
+    },
+    {
+      "name": "session-persist.sh",
+      "type": "hook",
+      "purpose": "Track file changes and checkpoints",
+      "events": [
+        "PostToolUse"
+      ],
+      "status": "present"
+    },
+    {
+      "name": "session-recovery-check.sh",
+      "type": "hook",
+      "purpose": "Detect stale/crashed sessions",
+      "events": [
+        "UserPromptSubmit"
+      ],
+      "status": "present"
+    },
+    {
+      "name": "pev-verification.sh",
+      "type": "hook",
+      "purpose": "Plan-Execute-Verify checks",
+      "events": [
+        "Pre-commit"
+      ],
+      "location": "hooks/agentic/",
+      "status": "present"
+    },
+    {
+      "name": "reflection-gate.sh",
+      "type": "hook",
+      "purpose": "Prompt self-critique for large code files",
+      "events": [
+        "PostToolUse:Write"
+      ],
+      "location": "hooks/agentic/",
+      "status": "present"
+    },
+    {
+      "name": "metacognitive-check.sh",
+      "type": "hook",
+      "purpose": "High-stakes keyword detection and confidence",
+      "events": [
+        "UserPromptSubmit"
+      ],
+      "location": "hooks/agentic/",
+      "status": "present"
+    },
+    {
+      "name": "pipeline-brain.sh",
+      "type": "hook",
+      "purpose": "Central pipeline state management",
+      "events": [
+        "various"
+      ],
+      "location": "hooks/pipeline/",
+      "status": "present"
+    },
+    {
+      "name": "pipeline-messenger.sh",
+      "type": "hook",
+      "purpose": "Message delivery between stages",
+      "location": "hooks/pipeline/",
+      "status": "present"
+    },
+    {
+      "name": "pipeline-patterns.sh",
+      "type": "hook",
+      "purpose": "Detect pipeline usage patterns",
+      "location": "hooks/pipeline/",
+      "status": "present"
+    },
+    {
+      "name": "pipeline-progress-updater.sh",
+      "type": "hook",
+      "purpose": "Auto-update BUILDING.md with stage progress",
+      "location": "hooks/pipeline/",
+      "status": "present"
+    },
+    {
+      "name": "pipeline-activity-tracker.sh",
+      "type": "hook",
+      "purpose": "Log all pipeline activity",
+      "location": "hooks/pipeline/",
+      "status": "present"
+    },
+    {
+      "name": "statusline.sh",
+      "type": "hook",
+      "purpose": "Custom status bar display",
+      "events": [
+        "StatusLine"
+      ],
+      "status": "active"
+    },
+    {
+      "name": "track-agent-usage.sh",
+      "type": "hook",
+      "purpose": "Agent usage analytics",
+      "status": "present"
+    },
+    {
+      "name": "track-skill-usage.sh",
+      "type": "hook",
+      "purpose": "Skill usage analytics",
+      "status": "present"
+    },
+    {
+      "name": "track-tool-usage.sh",
+      "type": "hook",
+      "purpose": "Tool usage analytics",
+      "status": "present"
+    },
+    {
+      "name": "track-mcp-usage.sh",
+      "type": "hook",
+      "purpose": "MCP usage analytics",
+      "status": "present"
+    }
+  ],
+  "duplicate_flags": [
+    {
+      "tools": [
+        "ab-test-designer",
+        "ab-test-setup"
+      ],
+      "reason": "Both design A/B tests",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "ab-test-setup"
+      ]
+    },
+    {
+      "tools": [
+        "agent-orchestrator",
+        "agent-workflow-builder"
+      ],
+      "reason": "Both coordinate multi-agent workflows"
+    },
+    {
+      "tools": [
+        "community-builder",
+        "community-manager"
+      ],
+      "reason": "Both manage online communities",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "community-manager"
+      ]
+    },
+    {
+      "tools": [
+        "competitive-intelligence",
+        "competitor-tracker"
+      ],
+      "reason": "Both track competitors",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "competitive-intelligence"
+      ]
+    },
+    {
+      "tools": [
+        "copywriter",
+        "copywriting"
+      ],
+      "reason": "Same purpose, different names",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "copywriting"
+      ]
+    },
+    {
+      "tools": [
+        "landing-page-designer",
+        "landing-page-optimizer",
+        "build-landing-page"
+      ],
+      "reason": "Three tools for landing pages"
+    },
+    {
+      "tools": [
+        "onboarding-designer",
+        "client-onboarding-designer"
+      ],
+      "reason": "Both design onboarding"
+    },
+    {
+      "tools": [
+        "performance-optimization",
+        "performance-profiler"
+      ],
+      "reason": "Both optimize performance",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "performance-optimization"
+      ]
+    },
+    {
+      "tools": [
+        "pitch-deck-builder",
+        "pitch-deck-creator"
+      ],
+      "reason": "Identical purpose",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "pitch-deck-creator"
+      ]
+    },
+    {
+      "tools": [
+        "pricing-strategist",
+        "pricing-strategy"
+      ],
+      "reason": "Same purpose, different names"
+    },
+    {
+      "tools": [
+        "referral-program",
+        "referral-program-designer"
+      ],
+      "reason": "Both design referral programs",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "referral-program"
+      ]
+    },
+    {
+      "tools": [
+        "seo-analyst",
+        "seo-audit"
+      ],
+      "reason": "Both analyze SEO"
+    },
+    {
+      "tools": [
+        "social-content",
+        "social-post-creator",
+        "social-caption-writer"
+      ],
+      "reason": "Three tools for social content",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "social-content"
+      ]
+    },
+    {
+      "tools": [
+        "word-document-creator",
+        "word-processor-expert"
+      ],
+      "reason": "Both create Word docs"
+    },
+    {
+      "tools": [
+        "workflow-automator",
+        "workflow-designer",
+        "automation-architect"
+      ],
+      "reason": "Three tools for workflow automation",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "workflow-automator",
+        "workflow-designer"
+      ]
+    },
+    {
+      "tools": [
+        "creator-partnership-manager",
+        "influencer-finder"
+      ],
+      "reason": "Both manage influencer relationships",
+      "resolved": true,
+      "resolved_date": "2026-03-12",
+      "kept": [
+        "influencer-finder"
+      ]
+    }
+  ],
+  "slash_commands": []
+}

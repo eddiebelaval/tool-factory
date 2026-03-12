@@ -1,0 +1,14 @@
+{
+  "tool": "expo-deployment",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:29Z",
+  "score": 80,
+  "max_score": 100,
+  "percentage": 80,
+  "passed": 11,
+  "warnings": 2,
+  "failed": 1,
+  "recommendation": "PARTIAL",
+  "token_estimate": 1019,
+  "line_count":      209
+}

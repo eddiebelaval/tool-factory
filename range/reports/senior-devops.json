@@ -1,0 +1,14 @@
+{
+  "tool": "senior-devops",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:35Z",
+  "score": 60,
+  "max_score": 100,
+  "percentage": 60,
+  "passed": 8,
+  "warnings": 4,
+  "failed": 2,
+  "recommendation": "PARTIAL",
+  "token_estimate": 1117,
+  "line_count":      209
+}

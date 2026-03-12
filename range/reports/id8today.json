@@ -1,0 +1,14 @@
+{
+  "tool": "id8today",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:30Z",
+  "score": 53,
+  "max_score": 100,
+  "percentage": 53,
+  "passed": 8,
+  "warnings": 3,
+  "failed": 3,
+  "recommendation": "FAIL",
+  "token_estimate": 2485,
+  "line_count":      454
+}

@@ -1,0 +1,14 @@
+{
+  "tool": "script-writer",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:35Z",
+  "score": 100,
+  "max_score": 100,
+  "percentage": 100,
+  "passed": 14,
+  "warnings": 0,
+  "failed": 0,
+  "recommendation": "PASS",
+  "token_estimate": 1191,
+  "line_count":       97
+}

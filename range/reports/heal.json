@@ -1,0 +1,14 @@
+{
+  "tool": "heal",
+  "type": "skill",
+  "scored_at": "2026-03-12T15:01:54Z",
+  "score": 95,
+  "max_score": 100,
+  "percentage": 95,
+  "passed": 13,
+  "warnings": 1,
+  "failed": 0,
+  "recommendation": "PASS",
+  "token_estimate": 1455,
+  "line_count":      181
+}

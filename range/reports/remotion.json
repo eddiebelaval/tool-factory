@@ -1,0 +1,14 @@
+{
+  "tool": "remotion",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:34Z",
+  "score": 50,
+  "max_score": 100,
+  "percentage": 50,
+  "passed": 6,
+  "warnings": 6,
+  "failed": 2,
+  "recommendation": "FAIL",
+  "token_estimate": 855,
+  "line_count":       43
+}

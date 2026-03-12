@@ -1,0 +1,14 @@
+{
+  "tool": "email-sequence",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:28Z",
+  "score": 45,
+  "max_score": 100,
+  "percentage": 45,
+  "passed": 6,
+  "warnings": 5,
+  "failed": 3,
+  "recommendation": "FAIL",
+  "token_estimate": 5754,
+  "line_count":      925
+}

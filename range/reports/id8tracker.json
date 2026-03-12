@@ -1,0 +1,14 @@
+{
+  "tool": "id8tracker",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:30Z",
+  "score": 58,
+  "max_score": 100,
+  "percentage": 58,
+  "passed": 8,
+  "warnings": 4,
+  "failed": 2,
+  "recommendation": "FAIL",
+  "token_estimate": 2210,
+  "line_count":      340
+}

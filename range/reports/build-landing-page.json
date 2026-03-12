@@ -1,0 +1,14 @@
+{
+  "tool": "build-landing-page",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:26Z",
+  "score": 70,
+  "max_score": 100,
+  "percentage": 70,
+  "passed": 10,
+  "warnings": 2,
+  "failed": 2,
+  "recommendation": "PARTIAL",
+  "token_estimate": 11434,
+  "line_count":     1335
+}

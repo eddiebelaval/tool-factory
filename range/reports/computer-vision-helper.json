@@ -1,0 +1,14 @@
+{
+  "tool": "computer-vision-helper",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:27Z",
+  "score": 93,
+  "max_score": 100,
+  "percentage": 93,
+  "passed": 13,
+  "warnings": 1,
+  "failed": 0,
+  "recommendation": "PASS",
+  "token_estimate": 2446,
+  "line_count":      317
+}

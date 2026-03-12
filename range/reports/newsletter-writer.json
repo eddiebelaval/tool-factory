@@ -1,0 +1,14 @@
+{
+  "tool": "newsletter-writer",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:32Z",
+  "score": 85,
+  "max_score": 100,
+  "percentage": 85,
+  "passed": 12,
+  "warnings": 1,
+  "failed": 1,
+  "recommendation": "PASS",
+  "token_estimate": 3180,
+  "line_count":      505
+}

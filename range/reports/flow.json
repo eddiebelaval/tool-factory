@@ -1,0 +1,14 @@
+{
+  "tool": "flow",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:29Z",
+  "score": 78,
+  "max_score": 100,
+  "percentage": 78,
+  "passed": 11,
+  "warnings": 2,
+  "failed": 1,
+  "recommendation": "PARTIAL",
+  "token_estimate": 2185,
+  "line_count":      228
+}

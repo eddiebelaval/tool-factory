@@ -1,0 +1,14 @@
+{
+  "tool": "ab-test-setup",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:25Z",
+  "score": 53,
+  "max_score": 100,
+  "percentage": 53,
+  "passed": 7,
+  "warnings": 5,
+  "failed": 2,
+  "recommendation": "FAIL",
+  "token_estimate": 2793,
+  "line_count":      508
+}

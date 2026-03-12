@@ -1,0 +1,14 @@
+{
+  "tool": "nextjs-project-manager",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:32Z",
+  "score": 57,
+  "max_score": 100,
+  "percentage": 57,
+  "passed": 7,
+  "warnings": 5,
+  "failed": 2,
+  "recommendation": "FAIL",
+  "token_estimate": 1673,
+  "line_count":      290
+}

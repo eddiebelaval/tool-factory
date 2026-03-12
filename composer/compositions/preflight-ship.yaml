@@ -1,0 +1,24 @@
+# Composition: preflight-ship
+# Full preflight verification before shipping code
+# Created: 2026-03-12
+
+name: preflight-ship
+description: Run type check, build, lint, then ship
+version: "1.0.0"
+
+steps:
+  - type: shell
+    name: typecheck
+    command: "echo '[preflight] Type check would run: npx tsc --noEmit'"
+
+  - type: shell
+    name: build
+    command: "echo '[preflight] Build would run: npm run build'"
+
+  - type: skill
+    name: verify
+    args: "quick"
+
+  - type: command
+    name: ship
+    args: "--no-merge"

@@ -1,0 +1,14 @@
+{
+  "tool": "appstore-readiness",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:25Z",
+  "score": 50,
+  "max_score": 100,
+  "percentage": 50,
+  "passed": 7,
+  "warnings": 4,
+  "failed": 3,
+  "recommendation": "FAIL",
+  "token_estimate": 6842,
+  "line_count":      893
+}

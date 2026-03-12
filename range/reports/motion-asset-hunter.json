@@ -1,0 +1,14 @@
+{
+  "tool": "motion-asset-hunter",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:32Z",
+  "score": 92,
+  "max_score": 100,
+  "percentage": 92,
+  "passed": 12,
+  "warnings": 2,
+  "failed": 0,
+  "recommendation": "PASS",
+  "token_estimate": 1881,
+  "line_count":      287
+}

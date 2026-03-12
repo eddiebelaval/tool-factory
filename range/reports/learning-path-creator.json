@@ -1,0 +1,14 @@
+{
+  "tool": "learning-path-creator",
+  "type": "skill",
+  "scored_at": "2026-03-12T14:58:31Z",
+  "score": 90,
+  "max_score": 100,
+  "percentage": 90,
+  "passed": 13,
+  "warnings": 0,
+  "failed": 1,
+  "recommendation": "PASS",
+  "token_estimate": 3662,
+  "line_count":      455
+}

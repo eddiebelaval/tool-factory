@@ -1,0 +1,14 @@
+{
+  "tool": "browser-use",
+  "type": "skill",
+  "scored_at": "2026-03-12T15:01:57Z",
+  "score": 88,
+  "max_score": 100,
+  "percentage": 88,
+  "passed": 12,
+  "warnings": 2,
+  "failed": 0,
+  "recommendation": "PASS",
+  "token_estimate": 2204,
+  "line_count":      255
+}
