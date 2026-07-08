@@ -1,0 +1,30 @@
+# Test composition: parallel fan-out / join
+# Three steps run concurrently (each sleeps ~1s). Sequential execution would
+# take ~3s; parallel should finish in ~1s. A join step runs after they complete.
+name: test-parallel
+description: Test parallel fan-out and join semantics
+version: "1.0.0"
+
+steps:
+  - type: shell
+    name: setup
+    command: "echo 'preparing parallel group'"
+
+  - type: shell
+    name: task-a
+    command: "sleep 1; echo 'task-a done'"
+    parallel: true
+
+  - type: shell
+    name: task-b
+    command: "sleep 1; echo 'task-b done'"
+    parallel: true
+
+  - type: shell
+    name: task-c
+    command: "sleep 1; echo 'task-c done'"
+    parallel: true
+
+  - type: shell
+    name: join
+    command: "echo 'all parallel tasks complete — joined'"

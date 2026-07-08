@@ -24,6 +24,8 @@
 #
 # Step types: skill | command | hook | agent | shell
 # Each step runs sequentially. If a step fails, the pipeline stops.
+# Adjacent steps flagged 'parallel: true' fan out and run concurrently,
+# then the pipeline joins (waits for all) before the next sequential step.
 
 set -euo pipefail
 
@@ -88,6 +90,91 @@ for s in steps:
 " "$file"
 }
 
+# Execute a single step. Used by both the sequential engine and the parallel
+# group runner. Writes indented display output to <display_file>, and — on
+# success with export_as set — writes a "VAR='value'" directive to <export_file>
+# (the caller decides when to append it to ENV_FILE, so parallel exports stay
+# ordered). Reads accumulated env from the run-scoped ENV_FILE. Returns the
+# step's exit code.
+execute_step() {
+  local step_json="$1" display_file="$2" export_file="$3"
+  : > "$display_file"
+  : > "$export_file"
+
+  local FIELDS STEP_TYPE STEP_NAME STEP_ARGS STEP_CMD EXPORT_AS STEP_ENV
+  FIELDS=$(echo "$step_json" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+print('\t'.join([
+    d.get('type', ''),
+    d.get('name', d.get('command', '')),
+    d.get('args', ''),
+    d.get('command', ''),
+    d.get('export_as', ''),
+    d.get('env', ''),
+]))
+")
+  STEP_TYPE=$(echo "$FIELDS" | cut -f1)
+  STEP_NAME=$(echo "$FIELDS" | cut -f2)
+  STEP_ARGS=$(echo "$FIELDS" | cut -f3)
+  STEP_CMD=$(echo "$FIELDS" | cut -f4)
+  EXPORT_AS=$(echo "$FIELDS" | cut -f5)
+  STEP_ENV=$(echo "$FIELDS" | cut -f6)
+
+  # Build a temp env script combining accumulated + step-level env
+  local STEP_ENV_FILE
+  STEP_ENV_FILE=$(mktemp /tmp/composer-step-env.XXXXXX)
+  if [ -s "$ENV_FILE" ]; then
+    cat "$ENV_FILE" >> "$STEP_ENV_FILE"
+  fi
+  if [ -n "$STEP_ENV" ]; then
+    echo "$STEP_ENV" >> "$STEP_ENV_FILE"
+  fi
+
+  local EXIT_CODE=0 STEP_OUTPUT=""
+  case "$STEP_TYPE" in
+    shell)
+      STEP_OUTPUT=$(bash -c "set -a; source '$STEP_ENV_FILE' 2>/dev/null; set +a; $STEP_CMD" 2>&1) || EXIT_CODE=$?
+      echo "$STEP_OUTPUT" | sed 's/^/    /' >> "$display_file"
+      ;;
+    hook)
+      HOOK_FILE="$HOOKS_DIR/$STEP_NAME.sh"
+      if [ -x "$HOOK_FILE" ]; then
+        STEP_OUTPUT=$(bash -c "set -a; source '$STEP_ENV_FILE' 2>/dev/null; set +a; bash '$HOOK_FILE' $STEP_ARGS" 2>&1) || EXIT_CODE=$?
+        echo "$STEP_OUTPUT" | sed 's/^/    /' >> "$display_file"
+      else
+        echo -e "    ${RED}Hook not found or not executable: $HOOK_FILE${RESET}" >> "$display_file"
+        EXIT_CODE=1
+      fi
+      ;;
+    skill)
+      echo -e "    ${GRAY}Skill '$STEP_NAME' queued (invoke via /$STEP_NAME $STEP_ARGS)${RESET}" >> "$display_file"
+      ;;
+    command)
+      echo -e "    ${GRAY}Command '/$STEP_NAME' queued (invoke via /$STEP_NAME $STEP_ARGS)${RESET}" >> "$display_file"
+      ;;
+    agent)
+      echo -e "    ${GRAY}Agent '$STEP_NAME' referenced (invoke via Agent tool)${RESET}" >> "$display_file"
+      ;;
+    *)
+      echo -e "    ${RED}Unknown step type: $STEP_TYPE${RESET}" >> "$display_file"
+      EXIT_CODE=1
+      ;;
+  esac
+
+  rm -f "$STEP_ENV_FILE"
+
+  # Capture first line of output as an exported variable (on success)
+  if [ $EXIT_CODE -eq 0 ] && [ -n "$EXPORT_AS" ] && [ -n "$STEP_OUTPUT" ]; then
+    local EXPORT_VAL
+    EXPORT_VAL=$(echo "$STEP_OUTPUT" | head -1 | tr -d '\r' | tr -d "'" | tr -cd '[:print:]')
+    echo "${EXPORT_AS}='${EXPORT_VAL}'" >> "$export_file"
+    echo -e "    ${GRAY}(exported \$$EXPORT_AS)${RESET}" >> "$display_file"
+  fi
+
+  return $EXIT_CODE
+}
+
 # --- Parse Args ---
 ACTION="${1:-help}"
 shift || true
@@ -121,6 +208,16 @@ new)
 #
 # Each step runs sequentially. Pipeline stops on first failure.
 # Use 'continue_on_fail: true' to skip failures.
+#
+# Flow control fields (optional, per step):
+#   continue_on_fail: true   — keep going even if this step fails
+#   on_fail: <step-name>      — jump to a named step on failure
+#   skip: true                — jump-only target (not run in normal flow)
+#   export_as: VAR            — capture stdout's first line into \$VAR
+#   env: KEY=value            — inject a per-step environment variable
+#   parallel: true            — run concurrently with adjacent parallel steps
+#                               (a run of parallel steps fans out, then joins
+#                                before the next sequential step)
 
 name: $COMP_NAME
 description: Describe what this pipeline does
@@ -130,6 +227,16 @@ steps:
   - type: shell
     name: preflight
     command: "echo 'Starting pipeline: $COMP_NAME'"
+
+  # Parallel fan-out: these two run concurrently, then the pipeline joins.
+  # - type: shell
+  #   name: lint
+  #   command: "echo 'linting...'"
+  #   parallel: true
+  # - type: shell
+  #   name: unit-tests
+  #   command: "echo 'testing...'"
+  #   parallel: true
 
   # - type: skill
   #   name: verify
@@ -267,42 +374,48 @@ run)
   echo "$STEPS" > "$STEPS_FILE"
   trap "rm -f '$ENV_FILE' '$STEPS_FILE'" EXIT
 
-  # --- Execute steps (supports on_fail jumps + skip) ---
-  JUMP_TO=""
-
+  # --- Load steps into an indexed array (bash 3.2 compatible: no mapfile) ---
+  STEP_LIST=()
   while IFS= read -r step_json; do
     [ -z "$step_json" ] && continue
+    STEP_LIST+=("$step_json")
+  done < <(echo "$STEPS")
+  N=${#STEP_LIST[@]}
+  TOTAL_STEPS=$N
 
-    STEP_NUM=$((STEP_NUM + 1))
-    # Extract all fields in a single Python call (tab-delimited)
-    FIELDS=$(echo "$step_json" | python3 -c "
+  # --- Execute steps (supports on_fail jumps, skip, and parallel groups) ---
+  # Index-based loop: consecutive steps flagged 'parallel: true' fan out and
+  # run concurrently, then join before the next sequential step.
+  JUMP_TO=""
+  PIPELINE_STOPPED=false
+  i=0
+
+  while [ $i -lt $N ]; do
+    step_json="${STEP_LIST[$i]}"
+
+    # Flow fields needed to route this step (tab-delimited, single Python call)
+    FLOW=$(echo "$step_json" | python3 -c "
 import sys, json
 d = json.load(sys.stdin)
-fields = [
+print('\t'.join([
     d.get('type', ''),
     d.get('name', d.get('command', '')),
-    d.get('args', ''),
-    d.get('command', ''),
     str(d.get('continue_on_fail', 'false')),
-    d.get('export_as', ''),
     d.get('on_fail', ''),
     str(d.get('skip', 'false')),
-    d.get('env', ''),
-]
-print('\t'.join(fields))
+    str(d.get('parallel', 'false')),
+]))
 ")
-    STEP_TYPE=$(echo "$FIELDS" | cut -f1)
-    STEP_NAME=$(echo "$FIELDS" | cut -f2)
-    STEP_ARGS=$(echo "$FIELDS" | cut -f3)
-    STEP_CMD=$(echo "$FIELDS" | cut -f4)
-    CONTINUE_ON_FAIL=$(echo "$FIELDS" | cut -f5)
-    EXPORT_AS=$(echo "$FIELDS" | cut -f6)
-    ON_FAIL=$(echo "$FIELDS" | cut -f7)
-    SKIP=$(echo "$FIELDS" | cut -f8)
-    STEP_ENV=$(echo "$FIELDS" | cut -f9)
+    STEP_TYPE=$(echo "$FLOW" | cut -f1)
+    STEP_NAME=$(echo "$FLOW" | cut -f2)
+    CONTINUE_ON_FAIL=$(echo "$FLOW" | cut -f3)
+    ON_FAIL=$(echo "$FLOW" | cut -f4)
+    SKIP=$(echo "$FLOW" | cut -f5)
+    PARALLEL=$(echo "$FLOW" | cut -f6)
 
     # --- Skip logic: steps with skip=true only run via on_fail jump ---
     if [ "$SKIP" = "true" ] && [ -z "$JUMP_TO" ]; then
+      i=$((i + 1))
       continue
     fi
 
@@ -310,66 +423,96 @@ print('\t'.join(fields))
     if [ -n "$JUMP_TO" ]; then
       if [ "$STEP_NAME" = "$JUMP_TO" ]; then
         JUMP_TO=""
+        STEP_NUM=$((STEP_NUM + 1))
         echo -e "  ${AMBER}[jump]${RESET} ${WHITE}[$STEP_TYPE] $STEP_NAME${RESET} ${GRAY}(on_fail target)${RESET}"
       else
+        i=$((i + 1))
         continue
       fi
+    # --- Parallel group: gather consecutive parallel steps, run concurrently ---
+    elif [ "$PARALLEL" = "true" ]; then
+      GROUP=()
+      g=$i
+      while [ $g -lt $N ]; do
+        gp=$(echo "${STEP_LIST[$g]}" | python3 -c "import sys,json;print(str(json.load(sys.stdin).get('parallel','false')))")
+        [ "$gp" = "true" ] || break
+        GROUP+=("${STEP_LIST[$g]}")
+        g=$((g + 1))
+      done
+      GSIZE=${#GROUP[@]}
+      START_IDX=$((STEP_NUM + 1))
+      STEP_NUM=$((STEP_NUM + GSIZE))
+      echo -e "  ${TEAL}[$START_IDX-$STEP_NUM/$TOTAL_STEPS parallel x$GSIZE]${RESET} ${WHITE}launching $GSIZE steps concurrently${RESET}"
+
+      # Launch each group member in the background, capturing display/export/exit
+      G_DISPLAY=(); G_EXPORT=(); G_CODE=(); G_PID=()
+      for k in "${!GROUP[@]}"; do
+        df=$(mktemp /tmp/composer-pd.XXXXXX)
+        ef=$(mktemp /tmp/composer-pe.XXXXXX)
+        cf=$(mktemp /tmp/composer-pc.XXXXXX)
+        G_DISPLAY[$k]="$df"; G_EXPORT[$k]="$ef"; G_CODE[$k]="$cf"
+        ( rc=0; execute_step "${GROUP[$k]}" "$df" "$ef" || rc=$?; echo "$rc" > "$cf" ) &
+        G_PID[$k]=$!
+      done
+      # Join: wait for every member to finish
+      for k in "${!GROUP[@]}"; do
+        wait "${G_PID[$k]}" 2>/dev/null || true
+      done
+
+      # Report each member in declaration order; append exports deterministically
+      GROUP_FAILED=false
+      for k in "${!GROUP[@]}"; do
+        g_meta=$(echo "${GROUP[$k]}" | python3 -c "
+import sys, json
+d = json.load(sys.stdin)
+print('\t'.join([d.get('type',''), d.get('name', d.get('command','')), str(d.get('continue_on_fail','false'))]))
+")
+        g_type=$(echo "$g_meta" | cut -f1)
+        g_name=$(echo "$g_meta" | cut -f2)
+        g_cof=$(echo "$g_meta" | cut -f3)
+        g_rc=$(cat "${G_CODE[$k]}" 2>/dev/null || echo 1)
+
+        echo -e "    ${TEAL}├─${RESET} ${WHITE}[$g_type] $g_name${RESET}"
+        [ -s "${G_DISPLAY[$k]}" ] && sed 's/^/  /' "${G_DISPLAY[$k]}"
+        if [ "$g_rc" -eq 0 ]; then
+          [ -s "${G_EXPORT[$k]}" ] && cat "${G_EXPORT[$k]}" >> "$ENV_FILE"
+          echo -e "      ${GREEN}OK${RESET}"
+        else
+          echo -e "      ${RED}FAILED${RESET} (exit $g_rc)"
+          if [ "$g_cof" = "true" ]; then
+            echo -e "      ${AMBER}(continue_on_fail: true — continuing)${RESET}"
+          else
+            GROUP_FAILED=true
+          fi
+        fi
+        rm -f "${G_DISPLAY[$k]}" "${G_EXPORT[$k]}" "${G_CODE[$k]}"
+      done
+      echo ""
+
+      i=$g
+      if $GROUP_FAILED; then
+        echo -e "  ${RED}Pipeline stopped: a parallel step failed${RESET}"
+        PIPELINE_STOPPED=true
+        break
+      fi
+      continue
     else
+      STEP_NUM=$((STEP_NUM + 1))
       echo -e "  ${TEAL}[$STEP_NUM/$TOTAL_STEPS]${RESET} ${WHITE}[$STEP_TYPE] $STEP_NAME${RESET}"
     fi
 
-    # --- Load accumulated env vars + step-level env ---
-    # Build a temp env script that sources safely (no string interpolation into bash -c)
-    STEP_ENV_FILE=$(mktemp /tmp/composer-step-env.XXXXXX)
-    if [ -s "$ENV_FILE" ]; then
-      cat "$ENV_FILE" >> "$STEP_ENV_FILE"
-    fi
-    if [ -n "$STEP_ENV" ]; then
-      echo "$STEP_ENV" >> "$STEP_ENV_FILE"
-    fi
-
+    # --- Sequential single step ---
+    SD=$(mktemp /tmp/composer-sd.XXXXXX)
+    SE=$(mktemp /tmp/composer-se.XXXXXX)
     EXIT_CODE=0
-    STEP_OUTPUT=""
-    case "$STEP_TYPE" in
-      shell)
-        STEP_OUTPUT=$(bash -c "set -a; source '$STEP_ENV_FILE' 2>/dev/null; set +a; $STEP_CMD" 2>&1) || EXIT_CODE=$?
-        echo "$STEP_OUTPUT" | sed 's/^/    /'
-        ;;
-      hook)
-        HOOK_FILE="$HOOKS_DIR/$STEP_NAME.sh"
-        if [ -x "$HOOK_FILE" ]; then
-          STEP_OUTPUT=$(bash -c "set -a; source '$STEP_ENV_FILE' 2>/dev/null; set +a; bash '$HOOK_FILE' $STEP_ARGS" 2>&1) || EXIT_CODE=$?
-          echo "$STEP_OUTPUT" | sed 's/^/    /'
-        else
-          echo -e "    ${RED}Hook not found or not executable: $HOOK_FILE${RESET}"
-          EXIT_CODE=1
-        fi
-        ;;
-      skill)
-        echo -e "    ${GRAY}Skill '$STEP_NAME' queued (invoke via /$STEP_NAME $STEP_ARGS)${RESET}"
-        ;;
-      command)
-        echo -e "    ${GRAY}Command '/$STEP_NAME' queued (invoke via /$STEP_NAME $STEP_ARGS)${RESET}"
-        ;;
-      agent)
-        echo -e "    ${GRAY}Agent '$STEP_NAME' referenced (invoke via Agent tool)${RESET}"
-        ;;
-      *)
-        echo -e "    ${RED}Unknown step type: $STEP_TYPE${RESET}"
-        EXIT_CODE=1
-        ;;
-    esac
+    execute_step "$step_json" "$SD" "$SE" || EXIT_CODE=$?
+    [ -s "$SD" ] && cat "$SD"
 
-    rm -f "$STEP_ENV_FILE"
-
-    # --- Export captured output as variable ---
-    if [ $EXIT_CODE -eq 0 ] && [ -n "$EXPORT_AS" ] && [ -n "$STEP_OUTPUT" ]; then
-      # Capture first line of output as the variable value
-      # Sanitize: strip control chars, single-quote the value to prevent injection
-      EXPORT_VAL=$(echo "$STEP_OUTPUT" | head -1 | tr -d '\r' | tr -d "'" | tr -cd '[:print:]')
-      echo "${EXPORT_AS}='${EXPORT_VAL}'" >> "$ENV_FILE"
-      echo -e "    ${GRAY}(exported \$$EXPORT_AS)${RESET}"
+    # --- Export captured output as variable (on success) ---
+    if [ $EXIT_CODE -eq 0 ] && [ -s "$SE" ]; then
+      cat "$SE" >> "$ENV_FILE"
     fi
+    rm -f "$SD" "$SE"
 
     # --- Failure handling ---
     if [ $EXIT_CODE -ne 0 ]; then
@@ -379,6 +522,8 @@ print('\t'.join(fields))
         JUMP_TO="$ON_FAIL"
       elif [ "$CONTINUE_ON_FAIL" != "true" ]; then
         echo -e "\n  ${RED}Pipeline stopped at step $STEP_NUM${RESET}"
+        PIPELINE_STOPPED=true
+        echo ""
         break
       else
         echo -e "    ${AMBER}(continue_on_fail: true — continuing)${RESET}"
@@ -387,7 +532,8 @@ print('\t'.join(fields))
       echo -e "    ${GREEN}OK${RESET}"
     fi
     echo ""
-  done < <(echo "$STEPS")
+    i=$((i + 1))
+  done
 
   END_TIME=$(date +%s)
   DURATION=$((END_TIME - START_TIME))
@@ -417,6 +563,13 @@ help|*)
   echo -e "    ${TEAL}hook${RESET}     Run a hook script"
   echo -e "    ${TEAL}agent${RESET}    Reference an agent"
   echo -e "    ${TEAL}shell${RESET}    Run a bash command"
+  echo ""
+  echo -e "  ${WHITE}Flow Control (per-step fields):${RESET}"
+  echo -e "    ${TEAL}parallel: true${RESET}       Fan out with adjacent parallel steps, then join"
+  echo -e "    ${TEAL}on_fail: <name>${RESET}      Jump to a named step on failure"
+  echo -e "    ${TEAL}continue_on_fail${RESET}     Keep going if the step fails"
+  echo -e "    ${TEAL}export_as: VAR${RESET}       Capture stdout into \$VAR for later steps"
+  echo -e "    ${TEAL}env: KEY=value${RESET}       Inject a per-step environment variable"
   ;;
 
 esac
