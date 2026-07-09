@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Shipped. — Friday 8:55 AM publish-window notification
+  Sends Eddie a desktop notification reminding him to run /publish-shipped.
+  Does NOT auto-publish. Reminder only.
+
+  Install: cp to ~/Library/LaunchAgents/com.id8labs.shipped-notify.plist
+  Load:    launchctl bootstrap gui/$UID ~/Library/LaunchAgents/com.id8labs.shipped-notify.plist
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.id8labs.shipped-notify</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/osascript</string>
+    <string>-e</string>
+    <string>display notification "Issue ready to publish. Open Claude Code and run /publish-shipped." with title "Shipped." subtitle "Friday publish window — 9 AM ET" sound name "Glass"</string>
+  </array>
+
+  <!-- Friday at 08:55 -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict>
+      <key>Weekday</key><integer>5</integer>
+      <key>Hour</key><integer>8</integer>
+      <key>Minute</key><integer>55</integer>
+    </dict>
+  </array>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/eddiebelaval/Library/Logs/shipped/notify-stdout.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/eddiebelaval/Library/Logs/shipped/notify-stderr.log</string>
+</dict>
+</plist>
