@@ -1,0 +1,38 @@
+{
+  "name": "@id8labs/shipped-pipeline",
+  "version": "0.1.0",
+  "private": true,
+  "description": "The Shipped. magazine pipeline — scrape, render, verify, stage. Never auto-publish.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "shipped": "./dist/orchestrate/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "render": "tsx src/render/cli.ts",
+    "verify": "tsx src/verify/cli.ts",
+    "scrape": "tsx src/scrape/cli.ts",
+    "publish": "tsx src/orchestrate/cli.ts",
+    "test": "tsx --test test/*.test.ts",
+    "test:render": "tsx test/render.test.ts",
+    "test:verify": "tsx test/verify.test.ts"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "remark": "^15.0.1",
+    "remark-frontmatter": "^5.0.0",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "unified": "^11.0.4",
+    "yaml": "^2.3.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.16.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

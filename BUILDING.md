@@ -301,3 +301,37 @@ steps:
 - Self-Healing Lifecycle: 40% -> 80% (scheduled + notifications + regression alerts)
 
 **Remaining to full VISION:** Parallel step execution in Composer, visual time-series dashboards, automatic retirement proposals, self-tuning thresholds.
+
+### 2026-07-08 — HEAL: Composer Parallel Execution + Intelligence Reconciliation
+
+**Why:** Pipeline Composition (Pillar 5) was the biggest documented gap between VISION and shipped reality — stuck at PARTIAL 60% with three missing pieces (parallel execution, output piping, DAG graphs). This HEAL session ships the first missing slice: **parallel execution**, the next milestone. It also reconciles Usage Intelligence (Pillar 6) docs to reality after finding one of its two "missing" features was already built.
+
+**What was built:**
+
+**Composer: Parallel Execution (fan-out / join)** — `composer/compose.sh`
+- New per-step field `parallel: true`. A run of *adjacent* parallel steps forms a group that launches concurrently and joins (waits for all) before the next sequential step. Classic fan-out/join, not a full DAG.
+- Refactored the `run` engine from a streaming `while read` loop to an **index-based loop over a bash-3.2-compatible array** (no `mapfile` — macOS ships bash 3.2). This was required to look ahead and gather a parallel group; existing sequential/skip/jump semantics are preserved unchanged.
+- Extracted the per-step execution body into an `execute_step` helper shared by both the sequential path and the parallel group runner (env build, type dispatch, output capture, export capture). Single source of truth for how a step runs.
+- **Concurrency:** each group member runs in a background subshell; display output, exported value, and exit code are buffered to per-member temp files and reported in **declaration order** after the join — so parallel logs stay readable and `export_as` appends to the shared env file are race-free.
+- **Failure semantics:** a member failing without its own `continue_on_fail` stops the pipeline at the join. `on_fail` jumps are intentionally *not* supported inside a parallel group (a fan-out has no single failure point to jump from) — documented in SPEC.
+- Updated `new` template, `help`, and header docstring to document `parallel:` and the other flow-control fields.
+- New fixture `composer/compositions/test-parallel.yaml`.
+
+**Verification (all run and confirmed, not assumed):**
+- `bash -n` clean.
+- `run test-env` — env injection + `export_as` still work (regression pass).
+- `run test-branch` — `on_fail` jump + `skip` still work (regression pass).
+- `run test-parallel` — three 1-second steps completed in **~1.4s wall-clock** (not ~3s), proving concurrency; join step ran after.
+- Ad-hoc: a failing parallel member correctly **stopped** the pipeline before the downstream step; parallel `export_as` values (AVAL, BVAL) were both captured and consumed after the join.
+- `validate preflight-ship` — unchanged, still VALID.
+
+**Usage Intelligence (Pillar 6) — documentation reconciliation, no code change:**
+- Blocker listed "usage-weighted maintenance prioritization" as missing. Investigation found it is **already shipped**: `lifecycle.sh:277` assigns decay alerts HIGH/MEDIUM/LOW by usage count (>=10 / >=3 / <3 uses), and `intelligence.sh` sorts `decay_risk` by uses descending (`:135`) so the most-used broken tools surface first. VISION/SPEC updated to mark this realized.
+- The genuinely-remaining Pillar 6 gap is **visual time-series dashboards** — the `score-history.jsonl` data exists but there is no rendered chart/HTML view. This is net-new UI work (chart rendering) and was **not** built here per HEAL safety (document major work rather than implement half of it).
+
+**Status changes:**
+- Pillar 5 (Pipeline Composition): PARTIAL 60% -> 75%. Remaining: output piping / true stdin chaining, DAG-style `depends_on` graphs.
+- Pillar 6 (Usage Intelligence): PARTIAL 85% -> 90%. Remaining: visual time-series dashboards only.
+- VISION alignment: 90% -> 92%.
+
+**Remaining to full VISION (unchanged scope, minus parallel):** output piping between steps, DAG dependency graphs, visual time-series dashboards, automatic retirement proposals, self-tuning thresholds.

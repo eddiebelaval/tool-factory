@@ -1,9 +1,9 @@
 # SPEC.md -- Living Specification
 ## Tool Factory
 
-> Last reconciled: 2026-03-12 | Build stage: Operational
+> Last reconciled: 2026-07-08 | Build stage: Operational
 > Drift status: CURRENT
-> VISION alignment: 90% (4 realized, 3 advanced partial)
+> VISION alignment: 92% (4 realized, 3 advanced partial — Composer gains parallel execution)
 
 ---
 
@@ -88,6 +88,7 @@ Five generators, all following the same 7-step contract: validate input, generat
 | `agent` | Referenced (documentation only) | Agent routing |
 
 - **Flow control:** Sequential execution. Stops on first failure. `continue_on_fail: true` skips failures.
+- **Parallel execution (fan-out / join):** Adjacent steps flagged `parallel: true` launch concurrently as background jobs; the runner joins (waits for all) before advancing to the next sequential step. Each member's output is buffered and reported in declaration order so logs stay readable. `export_as` from parallel members is appended to the shared env deterministically (declaration order) after the join, avoiding write races. A member failure (without its own `continue_on_fail`) stops the pipeline at the join. Wall-clock for a group is the slowest member, not the sum. Note: `on_fail` jumps are not supported inside a parallel group (fan-out/join has no single failure point to jump from).
 - **Environment variable injection:** `export_as: VAR_NAME` captures step stdout into a variable available to subsequent steps. `env: KEY=value` injects per-step environment variables. Variables accumulate across steps via temp file.
 - **Conditional branching:** `on_fail: step-name` jumps to a named step on failure (skipping intermediate steps). `skip: true` marks steps as jump-only targets (not executed in normal flow).
 - **Validate:** Checks all referenced tools exist at expected filesystem paths before running.
@@ -202,6 +203,9 @@ Assertions testable against the live system:
 - [ ] `registry/lifecycle.sh --score` appends scores to `registry/score-history.jsonl`
 - [ ] `composer/compose.sh run test-env.yaml` passes env variables between steps (VERSION=2.5.0)
 - [ ] `composer/compose.sh run test-branch.yaml` jumps to fallback on failure, skips intermediate steps
+- [ ] `composer/compose.sh run test-parallel.yaml` runs 3 one-second steps concurrently (~1s wall-clock, not ~3s), then joins
+- [ ] A `parallel: true` group whose member fails (no `continue_on_fail`) stops the pipeline at the join
+- [ ] `export_as` from parallel members is available to steps after the join (declaration order)
 - [ ] `scripts/scheduled-lifecycle.sh` runs lifecycle and dispatches notifications on alerts
 - [ ] `plutil ~/Library/LaunchAgents/com.id8labs.tool-factory.lifecycle.plist` validates OK
 - [ ] `plutil ~/Library/LaunchAgents/com.id8labs.tool-factory.intelligence.plist` validates OK
@@ -214,3 +218,5 @@ Assertions testable against the live system:
 | 2026-03-12 | Initial spec | Written alongside VISION.md from complete BUILDING.md history |
 | 2026-03-12 | Usage Intelligence + Lifecycle added | intelligence.sh, lifecycle.sh, PostToolUse hook wired. VISION alignment 60% -> 70% |
 | 2026-03-12 | Sprint 2: Close the Loop | Score history + trends, Composer env/branching, scheduled lifecycle (launchd), HYDRA notifications. VISION alignment 70% -> 90% |
+| 2026-07-08 | HEAL: Composer parallel execution | Added `parallel: true` fan-out/join to `composer/compose.sh` (index-based engine, background jobs, ordered exports, join-on-failure). New `test-parallel.yaml` verifies concurrency. Pillar 5 (Pipeline Composition) 60% -> 75%. VISION alignment 90% -> 92%. |
+| 2026-07-08 | HEAL: Usage Intelligence doc reconciliation | Documented that usage-weighted maintenance prioritization is already shipped (lifecycle HIGH/MEDIUM/LOW by usage count; intelligence decay sorted by uses). Remaining gap for Pillar 6 is visual time-series dashboards only. |

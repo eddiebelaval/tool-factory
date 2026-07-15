@@ -9,7 +9,7 @@
 #   ./squire-sync.sh --sync-new   # Only add new tools (safe)
 #   ./squire-sync.sh --counts     # Just print counts (for pipelines)
 
-set -euo pipefail
+set -eo pipefail  # no -u: /bin/bash is 3.2, where expanding ANY empty array (new/stale/updated) is fatal under -u
 
 FACTORY_DIR="$HOME/Development/id8/tool-factory"
 SQUIRE_DIR="$HOME/Development/squire"

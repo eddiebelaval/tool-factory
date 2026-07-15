@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  Shipped. — Friday morning publishing automation
+  Install: cp this file to ~/Library/LaunchAgents/com.id8labs.shipped-friday.plist
+  Load:    launchctl bootstrap gui/$UID ~/Library/LaunchAgents/com.id8labs.shipped-friday.plist
+  Unload:  launchctl bootout gui/$UID/com.id8labs.shipped-friday
+
+  This plist runs THREE jobs on Fridays:
+    07:00  Refresh @claudedevs scraper output
+    08:00  /shipped --refresh-log (optional, only if Eddie wants automated log refresh)
+    08:55  Notify Eddie that publish window is open (does NOT auto-publish)
+
+  No job in this plist runs `pnpm publish` autonomously. The human gate is preserved.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.id8labs.shipped-friday</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>-lc</string>
+    <string>cd /Users/eddiebelaval/Development/id8/tool-factory/scrapers/shipped &amp;&amp; pnpm scrape --days 7 &gt;&gt; ~/Library/Logs/shipped/cron.log 2&gt;&amp;1</string>
+  </array>
+
+  <!-- Friday at 07:00 (scrape) -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict>
+      <key>Weekday</key><integer>5</integer>
+      <key>Hour</key><integer>7</integer>
+      <key>Minute</key><integer>0</integer>
+    </dict>
+  </array>
+
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/eddiebelaval/Library/Logs/shipped/launchd-stdout.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/Users/eddiebelaval/Library/Logs/shipped/launchd-stderr.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+  </dict>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/eddiebelaval/Development/id8/tool-factory/scrapers/shipped</string>
+</dict>
+</plist>

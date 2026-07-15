@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env
+output/x-claudedevs/*.json
+!output/x-claudedevs/.gitkeep
+*.log
+.DS_Store

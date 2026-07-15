@@ -1,8 +1,8 @@
 # VISION.md -- Living North Star
 ## Tool Factory
 
-> Last evolved: 2026-03-12 | Confidence: HIGH
-> Distance from SPEC: 10% (4 realized, 3 advanced partial)
+> Last evolved: 2026-07-08 | Confidence: HIGH
+> Distance from SPEC: 8% (4 realized, 3 advanced partial)
 
 ---
 
@@ -24,11 +24,11 @@ The Tool Factory exists because tools rot. id8Labs accumulated 460 tools over mo
 4. **Automated Refurbishment** -- REALIZED
    The Workshop retrofits failing tools with missing structure -- frontmatter, triggers, workflows -- without touching the content that makes them valuable. Manual mode for precision work, batch mode for fleet-wide sweeps. Structure is additive, never destructive.
 
-5. **Pipeline Composition** -- PARTIAL (60%)
-   Composer chains tools into named, validated, reusable YAML pipelines. Shell and hook steps execute directly; skill and command steps queue for Claude invocation. Environment variable injection (`export_as` captures stdout, `env` injects per-step). Conditional branching (`on_fail` jumps to named steps, `skip: true` for jump-only targets). Missing: parallel execution, output piping between steps, DAG-style dependency graphs.
+5. **Pipeline Composition** -- PARTIAL (75%)
+   Composer chains tools into named, validated, reusable YAML pipelines. Shell and hook steps execute directly; skill and command steps queue for Claude invocation. Environment variable injection (`export_as` captures stdout, `env` injects per-step). Conditional branching (`on_fail` jumps to named steps, `skip: true` for jump-only targets). Parallel execution (`parallel: true` fans out adjacent steps as concurrent background jobs, then joins before the next sequential step — ordered exports, join-on-failure). Missing: output piping between steps (true stdin chaining beyond `export_as`), DAG-style dependency graphs (arbitrary `depends_on` topological execution).
 
-6. **Usage Intelligence** -- PARTIAL (85%)
-   Usage tracker logs invocations to JSONL and updates registry timestamps. PostToolUse hook wired for Skill events. API data from id8labs.app merged with local JSONL. Intelligence script surfaces fleet health, top-used tools, ghost tools, decay risk, dormant tools, and score trends. Score history (`score-history.jsonl`) enables regression detection across lifecycle runs. `--trends` subcommand shows regressions (>15pt drops), improvements, fleet average trend, and verdict distribution changes. Missing: time-series dashboards (visual), usage-weighted maintenance prioritization.
+6. **Usage Intelligence** -- PARTIAL (90%)
+   Usage tracker logs invocations to JSONL and updates registry timestamps. PostToolUse hook wired for Skill events. API data from id8labs.app merged with local JSONL. Intelligence script surfaces fleet health, top-used tools, ghost tools, decay risk, dormant tools, and score trends. Score history (`score-history.jsonl`) enables regression detection across lifecycle runs. `--trends` subcommand shows regressions (>15pt drops), improvements, fleet average trend, and verdict distribution changes. Usage-weighted maintenance prioritization is realized: `lifecycle.sh` assigns decay alerts HIGH/MEDIUM/LOW priority by usage count (>=10 / >=3 / <3 uses), and `intelligence.sh --decay` sorts failing tools by usage descending, so the most-used broken tools surface first. Missing: time-series dashboards (visual) — the score-history data exists but has no rendered chart/HTML view yet.
 
 7. **Self-Healing Lifecycle** -- PARTIAL (80%)
    Lifecycle script runs a 4-phase maintenance cycle: Range scoring (with score history snapshots), auto-retrofit, dormant detection, decay alerts. Scheduled via launchd — daily 2 AM dry-run reports, weekly Sunday live runs with auto-fixes. Notification dispatch via HYDRA's `notify-eddie.sh` on decay alerts and critical score regressions (>20pt drops). Missing: automatic retirement proposals, self-tuning thresholds.
@@ -63,3 +63,4 @@ The Tool Factory exists because tools rot. id8Labs accumulated 460 tools over mo
 | 2026-03-12 | Initial vision | Built from first day of factory construction -- registry, generators, Range, Workshop, Composer all built in single session |
 | 2026-03-12 | Usage Intelligence + Self-Healing | intelligence.sh (fleet health reports), lifecycle.sh (4-phase maintenance cycle), PostToolUse hook wired. Pillars 6-7 move from UNREALIZED to PARTIAL. |
 | 2026-03-12 | Sprint 2: Close the Loop | Score history + regression detection, Composer env injection + conditional branching, scheduled lifecycle (launchd 2AM/3AM), HYDRA notification dispatch. Pillars 5-7 advance: 30%->60%, 60%->85%, 40%->80%. VISION alignment: 70%->90%. |
+| 2026-07-08 | HEAL: Composer parallel execution + intelligence reconciliation | Shipped `parallel: true` fan-out/join in Composer (Pillar 5: 60%->75%). Reconciled Pillar 6 to reality — usage-weighted prioritization was already built (priority tiers + usage-sorted decay); only visual dashboards remain (85%->90%). VISION alignment: 90%->92%. |
